@@ -1,0 +1,133 @@
+{
+  "recordedAtUtc": "2026-10-14T17:44:00.281619+00:00",
+  "version": "0.1.0",
+  "identifier": "com.sharkytang.qingdou.workbench",
+  "app": "/Users/shaoqitang/Documents/ChatGPT/视频创作者工作台/deliverables/D2/逆向轻抖.app",
+  "archive": "/Users/shaoqitang/Documents/ChatGPT/视频创作者工作台/deliverables/D2/逆向轻抖-D2-mac-arm64.zip",
+  "appBytes": 7326351,
+  "executableSha256": "6a4a977260e98079ad6b17f22407be6185b1dcd2e25fc67c2d83c6581f10dfd6",
+  "archiveSha256": "d950550ac136cff9457cc11d75e538f6bf1ad9d146c54ab69889797400bb9f48",
+  "signature": {
+    "type": "adhoc",
+    "strictVerification": "passed",
+    "developerId": false,
+    "notarized": false
+  },
+  "architecture": "arm64",
+  "nativeLinkedRuntime": "system WebKit/AppKit; otool inspected",
+  "staticAssets": {
+    "productionDist": "embedded",
+    "demoVideoKeyFoundInExecutable": true,
+    "demoDurationMs": 12000
+  },
+  "verification": {
+    "typecheck": "passed in final desktop build",
+    "logicAndStartupTestsPassed": 16,
+    "rustRuleTestsPassed": 2,
+    "browserTestsPassed": 10,
+    "widths": [
+      1024,
+      1280,
+      1440,
+      1728
+    ],
+    "nativeGui": "NOT RUN - Mac locked; user requested remaining verification first",
+    "finderLaunch": "NOT RUN",
+    "nativeScreenshots": "NOT AVAILABLE",
+    "D3": "NOT STARTED"
+  },
+  "npmVersions": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "@tauri-apps/api": "2.12.3",
+    "@tauri-apps/cli": "2.12.2",
+    "typescript": "5.9.3",
+    "vite": "7.3.7",
+    "vitest": "5.0.4",
+    "@playwright/test": "1.64.1"
+  },
+  "screenshots": [
+    {
+      "file": "docs/desktop-workbench/screenshots/browser-analysis.png",
+      "width": 1440,
+      "height": 900,
+      "source": "Chrome component test, not native Mac",
+      "sha256": "504082e668002cf84e6413adfa1343e2354f594d1303f1c52f96f328c7274cc4"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/browser-creator.png",
+      "width": 1440,
+      "height": 900,
+      "source": "Chrome component test, not native Mac",
+      "sha256": "2fddf385c1e5050b52ef39eecc406deddeeb57e3589285aa466200447fa66c8d"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/browser-home.png",
+      "width": 1440,
+      "height": 900,
+      "source": "Chrome component test, not native Mac",
+      "sha256": "f1416d9ca618b41f67a8d51dbf80d0f997ea6646ebc712f034e9f7b53b03c71c"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/browser-library.png",
+      "width": 1440,
+      "height": 900,
+      "source": "Chrome component test, not native Mac",
+      "sha256": "940f1b206b0e4eccd75d3b9b124e5cef8685aed7ca16fa96cbc097f3974bd1c5"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/browser-methods.png",
+      "width": 1440,
+      "height": 900,
+      "source": "Chrome component test, not native Mac",
+      "sha256": "bfb1eb06e09371b8fb7b3caf57496c3c4e8773bec6e127032993e7bf0adab21d"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/browser-radar.png",
+      "width": 1440,
+      "height": 900,
+      "source": "Chrome component test, not native Mac",
+      "sha256": "352ed606b13e51b5bec8327ce0ec88409fd7cd39f82ac57f1379f91351d090ea"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/browser-settings.png",
+      "width": 1440,
+      "height": 900,
+      "source": "Chrome component test, not native Mac",
+      "sha256": "d150e4af2668a64f30b088ed0079ac555e6816414c0a0792fb55c0de2942a8da"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/browser-works.png",
+      "width": 1440,
+      "height": 900,
+      "source": "Chrome component test, not native Mac",
+      "sha256": "06815a1fcf2ba86e5725485e377515fbabc92e6079eafa7b95e5a35784294cf1"
+    }
+  ],
+  "sourceSha256": {
+    "apps/desktop/src/App.tsx": "a3a7e3106c85f439563cf2def3b033cb5e0448d4b58518a928e1f3d3449bd56a",
+    "apps/desktop/src/adapters/demo.ts": "7d24e37ea60d7e8aa2dea667ee7a1399f64fdb18684b4cb14560dfa4cc3ff1d1",
+    "apps/desktop/src/adapters/desktop.ts": "a1569954693d82f68a606889819f9df6f7f3eaa1d5a06880e8caf5497b0cbf7e",
+    "apps/desktop/src/adapters/disconnected.ts": "011a99ed60493d3de7d34b731b6973cc874d00ecbe1b79eddf8f20813401e54c",
+    "apps/desktop/src/app/Dialogs.tsx": "d35ed1e51c6f76c4affeff21143e2c23a468dbb65daa6a27cd2060d2b76f3ee3",
+    "apps/desktop/src/app/Shell.tsx": "68b86726e80ced1d6de3e89763629801c40e71637ddb71a3f3be552b9aa31e5f",
+    "apps/desktop/src/app/context.tsx": "4a26f9ffb5df56dcbacf0c18e0be20ae27cc6790ea9ef64b4beb37832d712c99",
+    "apps/desktop/src/components/ui.tsx": "96cf89e28a0e1051aebad0fa7b3338e8f867fcfd2272bee109acc59991059df6",
+    "apps/desktop/src/domain.ts": "ffd89084a953f4750ba9445d8c04005af4fe409817eb91b2fda80b50fbeeb28a",
+    "apps/desktop/src/features/Analysis.tsx": "7a7628213da8646200986b758690f6d9dc6e1dd3c17114e9b07cdfb086283753",
+    "apps/desktop/src/features/Creator.tsx": "4e032cc4a92a08aad54c3d734f4afe03341e610f96e9921d72f338e1864af762",
+    "apps/desktop/src/features/Dashboard.tsx": "a4af7c569de3c46a127831c71671b96dca593a9e7ed319e073eada2966869bdb",
+    "apps/desktop/src/features/Library.tsx": "e271af20ca2e53461f55a684edcb29611ac7f38ec58cb9a4463286d45c1eb3f5",
+    "apps/desktop/src/features/Methods.tsx": "fc823da3abe87068fbef575f88ec2ef8bbe424075c6d5fd00df6bffc0ac39989",
+    "apps/desktop/src/features/Radar.tsx": "bad986ff24f275a1a886807ddceb7227c66591898449ade43cbce8172da75566",
+    "apps/desktop/src/features/Settings.tsx": "f2c135ff3bd4d52ad4ba41809d5dad9a52290efbab17b581a27f3189773c2049",
+    "apps/desktop/src/features/Works.tsx": "ee8472ac32226ca9e7edf50143069a96d5e104627a6e7aba690c497084e26962",
+    "apps/desktop/src/fixtures/demo.ts": "1f0395c0f15b76de49ae4245ae9b2842af4ecaf50969ed108ac11629fa3bbaac",
+    "apps/desktop/src/main.tsx": "6c2ca5004122cdf590685261371a807fcaaaac7e5f00f82cb74967d49817a79f",
+    "apps/desktop/src/ports/index.ts": "c240020b7f42f716bbd78337516edbc1dbadc9cade24490deb1d6f9a597fd23e",
+    "apps/desktop/src/services.ts": "eb2171a28470f6c94d4c29400b3d0efa4f4f594c9c0d0bb81193be4b15ab5961",
+    "apps/desktop/src/styles.css": "4a6ebba09a178f3b6be8c78fb14ba6fc5d326be417acbbcd47835f94ff9eacad",
+    "apps/desktop/src-tauri/src/lib.rs": "8f8c9ea64464ed578a60f299d56fab356c63841352d2ac38fd20faf088d68fe0",
+    "apps/desktop/src-tauri/src/main.rs": "a33e1335eb6f497ff7015df514056b5ff68a417e221369b823d48ba386dd24fb"
+  }
+}
