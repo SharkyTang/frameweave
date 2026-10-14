@@ -56,8 +56,8 @@ export function Shell({ children }: { children: React.ReactNode }) {
             <Clapperboard size={23} />
           </div>
           <div className="brand-name">
-            <strong>逆向轻抖</strong>
-            <span>视频创作者工作台</span>
+            <strong>FrameWeave</strong>
+            <span>映构 · 创作者工作台</span>
           </div>
         </div>
         <button

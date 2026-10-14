@@ -280,12 +280,14 @@ kbd {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  min-width: 0;
 }
 .brand-name strong {
   font-size: 18px;
   color: #414359;
   font-weight: 650;
-  letter-spacing: 1px;
+  letter-spacing: -0.35px;
+  white-space: nowrap;
 }
 .brand-name span {
   font-size: 10px;

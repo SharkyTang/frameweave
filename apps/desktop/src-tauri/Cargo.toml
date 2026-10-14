@@ -1,12 +1,12 @@
 [package]
-name = "qingdou-workbench"
+name = "frameweave-workbench"
 version = "0.1.0"
 description = "本地优先的视频创作桌面工作台"
 authors = ["SharkyTang"]
 edition = "2021"
 
 [lib]
-name = "qingdou_workbench_lib"
+name = "frameweave_workbench_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]

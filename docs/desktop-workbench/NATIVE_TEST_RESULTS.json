@@ -1,0 +1,194 @@
+{
+  "date": "2026-10-14",
+  "stage": "D2",
+  "application": "deliverables/D2/FrameWeave.app",
+  "platform": "macOS 26.6.2 arm64",
+  "runtime": "Tauri / WKWebView",
+  "origin": "tauri://localhost",
+  "developmentServer": {
+    "port": 1420,
+    "listeningDuringFinalLaunch": false
+  },
+  "nativeGui": "passed with the specific manual items listed below",
+  "finderLaunch": {
+    "status": "passed-before-rebrand; not-repeated-after-rebrand",
+    "previousD2UserReply": "已双击启动",
+    "currentVerification": "Native packaged-app cold launch, not another manual Finder double-click"
+  },
+  "windowBeforeAndAfterRestart": {
+    "logicalWidth": 1024,
+    "logicalHeight": 680,
+    "physicalX": 588,
+    "physicalY": 236,
+    "source": "Migrated app-owned shell.json; FrameWeave preserved 1024x680 and physical x588/y236 after cold restart",
+    "otherNativeWidthsObserved": [
+      1512
+    ],
+    "userMinimumWidthReply": "已拖到最窄，布局正常"
+  },
+  "regressionFixed": {
+    "problem": "macOS predefined Quit terminated directly and skipped the dirty demo confirmation",
+    "change": "Custom quit MenuItem emits desktop-action quit and reveals/unminimizes the window for the confirmation",
+    "validation": "2 Rust tests passed; final production app rebuilt; native confirmation, cancel, confirm and process exit passed"
+  },
+  "partial": [
+    {
+      "id": "minimize",
+      "evidence": "System minimize button invoked; process remained running and app reactivation preserved the personal home. CUA still exposes the window, so disappearance into Dock was not independently observed"
+    }
+  ],
+  "notRun": [
+    "Manual Finder double-click after brand change; native packaged-app launch passed, earlier D2 manual Finder check passed",
+    "Physical mouse click on Dock; earlier D2 reactivation passed",
+    "Chinese IME candidate composition; earlier D2 text editing passed",
+    "Actual external-display disconnect; Rust clamping test passed",
+    "Post-rename native 1280/1440/1728; four browser widths passed, native 1024/1512 captured",
+    "Physical network disconnect, other Macs/OS/CPU/platforms, all codecs and audio output"
+  ],
+  "screenshots": {
+    "format": "JPEG returned by native CUA, kept unchanged as .jpg",
+    "finalBundleNames": [
+      "desktop-analysis-playing.jpg",
+      "desktop-analysis.jpg",
+      "desktop-brand-settings.jpg",
+      "desktop-creator.jpg",
+      "desktop-final-personal-home.jpg",
+      "desktop-fullscreen.jpg",
+      "desktop-home.jpg",
+      "desktop-library.jpg",
+      "desktop-methods.jpg",
+      "desktop-min-analysis.jpg",
+      "desktop-min-creator.jpg",
+      "desktop-min-home.jpg",
+      "desktop-min-library.jpg",
+      "desktop-min-methods.jpg",
+      "desktop-min-radar.jpg",
+      "desktop-min-settings.jpg",
+      "desktop-min-works.jpg",
+      "desktop-native-relaunch.jpg",
+      "desktop-personal-home.jpg",
+      "desktop-quit-confirm.jpg",
+      "desktop-radar.jpg",
+      "desktop-settings.jpg",
+      "desktop-wide-settings.jpg",
+      "desktop-width-1024.jpg",
+      "desktop-window-zoomed.jpg",
+      "desktop-works.jpg"
+    ],
+    "earlierNativeCaptures": "All current native images recaptured from FrameWeave. Previous brand images archived outside the workspace.",
+    "videoCaptureLimitation": "Video area appears gray in native screenshots; the capture's underlying cause was not measured. User saw normal geometric video and native controls reached the full duration; images were not retouched"
+  },
+  "D3": "NOT STARTED",
+  "brand": {
+    "name": "FrameWeave",
+    "chineseName": "映构",
+    "identifier": "com.sharkytang.frameweave.workbench",
+    "package": "frameweave-desktop-workbench",
+    "executable": "frameweave-workbench"
+  },
+  "standaloneLaunch": {
+    "status": "passed",
+    "method": "Native CUA opened the final FrameWeave.app; process was stopped before cold launch",
+    "windowTitle": "FrameWeave · 映构视频创作工作台",
+    "developmentServerListening": false,
+    "restoredRoute": "/analysis/demo-shapes",
+    "screenshot": "desktop-native-relaunch.jpg"
+  },
+  "baselineD2PassedBeforeRebrand": [
+    {
+      "id": "native-bridge",
+      "evidence": "Settings reports macos / aarch64, Tauri / WKWebView, native layer responded, real dedicated AppData directory"
+    },
+    {
+      "id": "eight-pages",
+      "evidence": "All eight routes opened in a real Mac window; desktop-*.jpg screenshots"
+    },
+    {
+      "id": "final-eight-pages-minimum",
+      "evidence": "Final bundle opened all eight pages at 1024 x 680; desktop-min-*.jpg"
+    },
+    {
+      "id": "demo-isolation",
+      "evidence": "Personal workspace empty before and after restart; explicit demo banner and session-only edits"
+    },
+    {
+      "id": "chinese-search",
+      "evidence": "Library query 三段式 returned one sample; query cleared afterward"
+    },
+    {
+      "id": "demo-video",
+      "evidence": "Native Play/Pause and controls reached elapsed 12 seconds, duration 12 seconds; user confirmed 可以看到正常视频画面. Captured video layer is gray"
+    },
+    {
+      "id": "time-note",
+      "evidence": "Clicked 00:04 structure marker; native note dialog showed 00:04; saved synthetic Chinese observation visible at four seconds"
+    },
+    {
+      "id": "reference-to-project",
+      "evidence": "Reference demo-shapes linked to a blank Mac 实机原创练习 project; brief and original first script segment edited and retained across tabs"
+    },
+    {
+      "id": "shortcuts",
+      "evidence": "Cmd+N/O/S/K/, and Esc verified in native window; phase explanations accurate and search filtered the synthetic project"
+    },
+    {
+      "id": "edit-menu",
+      "evidence": "Chinese text paste, select-all, copy and cut/paste; native Edit Undo emptied the note and Redo restored it"
+    },
+    {
+      "id": "close-and-reactivate",
+      "evidence": "Cmd+W hid the window while the process remained running; app reactivation restored the same demo session and edits"
+    },
+    {
+      "id": "zoom-fullscreen",
+      "evidence": "Native zoom action changed width to 1512; entered fullscreen and Cmd+Ctrl+F restored window controls"
+    },
+    {
+      "id": "quit-confirmation-final",
+      "evidence": "Final custom Cmd+Q menu displayed confirmation; Continue Editing retained the changed favorite; confirm-exit ended the process"
+    },
+    {
+      "id": "deep-route-and-window-restore",
+      "evidence": "After confirmed exit, Finder launch restored /analysis/demo-shapes and 1024 x 680, x588 y236; demo edits reset as documented"
+    }
+  ],
+  "passed": [
+    {
+      "id": "brand-identity",
+      "evidence": "Window title, sidebar, app menu/About/Hide/Quit labels and diagnostics show FrameWeave / 映构"
+    },
+    {
+      "id": "native-brand-bridge",
+      "evidence": "Settings returns real com.sharkytang.frameweave.workbench AppData; macos/aarch64; WKWebView"
+    },
+    {
+      "id": "eight-pages-min-and-wide",
+      "evidence": "All eight pages captured at 1024x680 and native zoom width1512"
+    },
+    {
+      "id": "window-preferences-migration",
+      "evidence": "Original shell-only data directory renamed after old app exited; initial 1024x680 x588/y236 preserved"
+    },
+    {
+      "id": "zoom-and-fullscreen",
+      "evidence": "System zoom to1512, fullscreen enter/exit, restore to1024x680"
+    },
+    {
+      "id": "native-player-smoke",
+      "evidence": "Self-made sample Play changed to Pause in the renamed native app; video media unchanged"
+    },
+    {
+      "id": "quit-and-restart",
+      "evidence": "Changed sample favorite; Cmd+Q confirmation; cancel retained session; confirmed quit stopped process; cold package restart restored deep route and personal empty state"
+    }
+  ],
+  "workspaceRoot": "/Users/shaoqitang/Documents/ChatGPT/FrameWeave",
+  "workspaceRelocation": {
+    "status": "completed",
+    "method": "directory rename; repository and local changes retained",
+    "previousSystemStateArchived": [
+      "Caches",
+      "WebKit"
+    ]
+  }
+}

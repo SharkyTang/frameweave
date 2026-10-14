@@ -1,8 +1,9 @@
-# 本轮新增文件
+# D2 工程文件清单
 
-初始为空仓库，无用户未提交修改。全部为本工程新增文件；没有改动外部插件/Python。依赖、工具链、构建产物和 ZIP 按 .gitignore 排除。Tauri 图标工具的自动输出不代表其他平台已实现或测试。
+D0 开始时为空仓库，无旧文件或用户未提交修改；本轮建立独立桌面包。执行中新增的 AGENTS.md、远端配置和已有暂存内容均保留，本轮没有重新暂存、提交或推送。以下包含 Git 可见的已暂存和未暂存文件，不代表均由同一次操作创建；没有改动外部插件/Python。依赖、工具链、构建产物和 ZIP 按 .gitignore 排除。Tauri 图标自动输出不代表其他平台已实现或测试。
 
 - `.gitignore`
+- `AGENTS.md`
 - `README.md`
 - `apps/desktop/icon.svg`
 - `apps/desktop/index.html`
@@ -19,6 +20,7 @@
 - `apps/desktop/scripts/generate-frames.py`
 - `apps/desktop/scripts/install-rust.sh`
 - `apps/desktop/scripts/record-delivery.py`
+- `apps/desktop/scripts/relocate-workspace.py`
 - `apps/desktop/src-tauri/Cargo.lock`
 - `apps/desktop/src-tauri/Cargo.toml`
 - `apps/desktop/src-tauri/build.rs`
@@ -112,6 +114,11 @@
 - `docs/desktop-workbench/CHANGED_FILES.md`
 - `docs/desktop-workbench/CURRENT_STATUS.md`
 - `docs/desktop-workbench/DECISIONS.md`
+- `docs/desktop-workbench/FrameWeave_桌面工作台V0.1_Codex分阶段执行计划_2026-10-14.md`
+- `docs/desktop-workbench/FrameWeave_桌面工作台V0.1_Codex新对话提示词_2026-10-14.md`
+- `docs/desktop-workbench/NATIVE_TEST_RESULTS.json`
+- `docs/desktop-workbench/NATIVE_VALIDATION.md`
+- `docs/desktop-workbench/REBRAND_HANDOFF.md`
 - `docs/desktop-workbench/RUNNING.md`
 - `docs/desktop-workbench/handoffs/D1_HANDOFF.md`
 - `docs/desktop-workbench/handoffs/D2_HANDOFF.md`
@@ -124,5 +131,29 @@
 - `docs/desktop-workbench/screenshots/browser-radar.png`
 - `docs/desktop-workbench/screenshots/browser-settings.png`
 - `docs/desktop-workbench/screenshots/browser-works.png`
-- `docs/desktop-workbench/逆向轻抖_桌面工作台V0.1_Codex分阶段执行计划_2026-10-14.md`
-- `docs/desktop-workbench/逆向轻抖_桌面工作台V0.1_Codex新对话提示词_2026-10-14.md`
+- `docs/desktop-workbench/screenshots/desktop-analysis-playing.jpg`
+- `docs/desktop-workbench/screenshots/desktop-analysis.jpg`
+- `docs/desktop-workbench/screenshots/desktop-brand-settings.jpg`
+- `docs/desktop-workbench/screenshots/desktop-creator.jpg`
+- `docs/desktop-workbench/screenshots/desktop-final-personal-home.jpg`
+- `docs/desktop-workbench/screenshots/desktop-fullscreen.jpg`
+- `docs/desktop-workbench/screenshots/desktop-home.jpg`
+- `docs/desktop-workbench/screenshots/desktop-library.jpg`
+- `docs/desktop-workbench/screenshots/desktop-methods.jpg`
+- `docs/desktop-workbench/screenshots/desktop-min-analysis.jpg`
+- `docs/desktop-workbench/screenshots/desktop-min-creator.jpg`
+- `docs/desktop-workbench/screenshots/desktop-min-home.jpg`
+- `docs/desktop-workbench/screenshots/desktop-min-library.jpg`
+- `docs/desktop-workbench/screenshots/desktop-min-methods.jpg`
+- `docs/desktop-workbench/screenshots/desktop-min-radar.jpg`
+- `docs/desktop-workbench/screenshots/desktop-min-settings.jpg`
+- `docs/desktop-workbench/screenshots/desktop-min-works.jpg`
+- `docs/desktop-workbench/screenshots/desktop-native-relaunch.jpg`
+- `docs/desktop-workbench/screenshots/desktop-personal-home.jpg`
+- `docs/desktop-workbench/screenshots/desktop-quit-confirm.jpg`
+- `docs/desktop-workbench/screenshots/desktop-radar.jpg`
+- `docs/desktop-workbench/screenshots/desktop-settings.jpg`
+- `docs/desktop-workbench/screenshots/desktop-wide-settings.jpg`
+- `docs/desktop-workbench/screenshots/desktop-width-1024.jpg`
+- `docs/desktop-workbench/screenshots/desktop-window-zoomed.jpg`
+- `docs/desktop-workbench/screenshots/desktop-works.jpg`

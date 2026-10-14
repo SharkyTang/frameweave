@@ -39,6 +39,18 @@ for (const width of [1024, 1280, 1440, 1728])
   test(`八个页面在 ${width} 宽度无正文横向溢出`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     await enterDemo(page);
+    const brandBounds = await page
+      .locator(".brand-name strong")
+      .evaluate((el) => {
+        const sidebar = el.closest(".sidebar")!;
+        return {
+          right: el.getBoundingClientRect().right,
+          sidebarRight: sidebar.getBoundingClientRect().right,
+          overflow: el.scrollWidth - el.clientWidth,
+        };
+      });
+    expect(brandBounds.right).toBeLessThanOrEqual(brandBounds.sidebarRight);
+    expect(brandBounds.overflow).toBeLessThanOrEqual(1);
     const errors: string[] = [];
     page.on("pageerror", (error) => errors.push(error.message));
     for (const path of destinations) {

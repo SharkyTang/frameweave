@@ -86,12 +86,14 @@ pub fn run() {
             let settings = MenuItem::with_id(app, "settings", "设置…", true, Some("CmdOrCtrl+,"))?;
             let close = MenuItem::with_id(app, "close", "关闭窗口", true, Some("CmdOrCtrl+W"))?;
             let reopen = MenuItem::with_id(app, "reopen", "显示工作台", true, None::<&str>)?;
+            // macOS's predefined quit item terminates directly, bypassing the demo confirmation.
+            let quit = MenuItem::with_id(app, "quit", "退出FrameWeave", true, Some("CmdOrCtrl+Q"))?;
             let menu = Menu::with_items(app, &[
-                &Submenu::with_items(app, "逆向轻抖", true, &[
-                    &PredefinedMenuItem::about(app, Some("关于逆向轻抖"), None)?, &settings,
-                    &PredefinedMenuItem::separator(app)?, &PredefinedMenuItem::hide(app, Some("隐藏逆向轻抖"))?,
+                &Submenu::with_items(app, "FrameWeave", true, &[
+                    &PredefinedMenuItem::about(app, Some("关于FrameWeave"), None)?, &settings,
+                    &PredefinedMenuItem::separator(app)?, &PredefinedMenuItem::hide(app, Some("隐藏FrameWeave"))?,
                     &PredefinedMenuItem::hide_others(app, Some("隐藏其他"))?, &PredefinedMenuItem::show_all(app, Some("显示全部"))?,
-                    &PredefinedMenuItem::separator(app)?, &PredefinedMenuItem::quit(app, Some("退出逆向轻抖"))?
+                    &PredefinedMenuItem::separator(app)?, &quit
                 ])?,
                 &Submenu::with_items(app, "文件", true, &[&new_project, &import, &save, &search, &PredefinedMenuItem::separator(app)?, &close])?,
                 &Submenu::with_items(app, "编辑", true, &[
@@ -108,6 +110,7 @@ pub fn run() {
                     match event.id().as_ref() {
                         "close" => { let _ = w.hide(); },
                         "reopen" => { let _ = w.show(); let _ = w.set_focus(); },
+                        "quit" => { let _ = w.show(); let _ = w.unminimize(); let _ = w.set_focus(); let _ = app.emit("desktop-action", "quit"); },
                         action => { let _ = app.emit("desktop-action", action); }
                     }
                 }

@@ -1,12 +1,13 @@
 {
-  "recordedAtUtc": "2026-10-14T17:44:00.281619+00:00",
+  "recordedAtUtc": "2026-10-14T20:06:13.536622+00:00",
   "version": "0.1.0",
-  "identifier": "com.sharkytang.qingdou.workbench",
-  "app": "/Users/shaoqitang/Documents/ChatGPT/视频创作者工作台/deliverables/D2/逆向轻抖.app",
-  "archive": "/Users/shaoqitang/Documents/ChatGPT/视频创作者工作台/deliverables/D2/逆向轻抖-D2-mac-arm64.zip",
-  "appBytes": 7326351,
-  "executableSha256": "6a4a977260e98079ad6b17f22407be6185b1dcd2e25fc67c2d83c6581f10dfd6",
-  "archiveSha256": "d950550ac136cff9457cc11d75e538f6bf1ad9d146c54ab69889797400bb9f48",
+  "identifier": "com.sharkytang.frameweave.workbench",
+  "app": "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/deliverables/D2/FrameWeave.app",
+  "archive": "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/deliverables/D2/FrameWeave-D2-mac-arm64.zip",
+  "appBytes": 7350321,
+  "executableSha256": "135a3d1bdcd98c64e5d64c0b593544ed728fedcd7b6485d09c654640ced01f5b",
+  "archiveSha256": "11b41cd8d2007bd9d8ca2731f34671796cec84bf953e09b3e41cf4b73c1e6e20",
+  "archiveContentsMatchApp": true,
   "signature": {
     "type": "adhoc",
     "strictVerification": "passed",
@@ -25,15 +26,47 @@
     "logicAndStartupTestsPassed": 16,
     "rustRuleTestsPassed": 2,
     "browserTestsPassed": 10,
-    "widths": [
+    "browserWidths": [
       1024,
       1280,
       1440,
       1728
     ],
-    "nativeGui": "NOT RUN - Mac locked; user requested remaining verification first",
-    "finderLaunch": "NOT RUN",
-    "nativeScreenshots": "NOT AVAILABLE",
+    "nativeGui": "passed with the specific manual items listed below",
+    "finderLaunch": {
+      "status": "passed-before-rebrand; not-repeated-after-rebrand",
+      "previousD2UserReply": "已双击启动",
+      "currentVerification": "Native packaged-app cold launch, not another manual Finder double-click"
+    },
+    "standaloneLaunch": {
+      "status": "passed",
+      "method": "Native CUA opened the final FrameWeave.app; process was stopped before cold launch",
+      "windowTitle": "FrameWeave · 映构视频创作工作台",
+      "developmentServerListening": false,
+      "restoredRoute": "/analysis/demo-shapes",
+      "screenshot": "desktop-native-relaunch.jpg"
+    },
+    "nativeWidthsObserved": [
+      1024,
+      1512
+    ],
+    "nativeScreenshots": 26,
+    "nativeResultsFile": "docs/desktop-workbench/NATIVE_TEST_RESULTS.json",
+    "nativeResultsSha256": "b98a5a883ebee748ee027291d7d6f5d3c870888fcd837ad0612600f74474039c",
+    "partialNativeChecks": [
+      {
+        "id": "minimize",
+        "evidence": "System minimize button invoked; process remained running and app reactivation preserved the personal home. CUA still exposes the window, so disappearance into Dock was not independently observed"
+      }
+    ],
+    "nativeChecksNotRun": [
+      "Manual Finder double-click after brand change; native packaged-app launch passed, earlier D2 manual Finder check passed",
+      "Physical mouse click on Dock; earlier D2 reactivation passed",
+      "Chinese IME candidate composition; earlier D2 text editing passed",
+      "Actual external-display disconnect; Rust clamping test passed",
+      "Post-rename native 1280/1440/1728; four browser widths passed, native 1024/1512 captured",
+      "Physical network disconnect, other Macs/OS/CPU/platforms, all codecs and audio output"
+    ],
     "D3": "NOT STARTED"
   },
   "npmVersions": {
@@ -52,56 +85,290 @@
       "width": 1440,
       "height": 900,
       "source": "Chrome component test, not native Mac",
-      "sha256": "504082e668002cf84e6413adfa1343e2354f594d1303f1c52f96f328c7274cc4"
+      "sha256": "8fd3197d13e9b68967dcc0c603619d41937fd0fbbcb6f671e4852f842748b703"
     },
     {
       "file": "docs/desktop-workbench/screenshots/browser-creator.png",
       "width": 1440,
       "height": 900,
       "source": "Chrome component test, not native Mac",
-      "sha256": "2fddf385c1e5050b52ef39eecc406deddeeb57e3589285aa466200447fa66c8d"
+      "sha256": "fe77eda3c11a2943fc3ddc64f71a080e145a416645f5742a8eefa4d00e7a7d99"
     },
     {
       "file": "docs/desktop-workbench/screenshots/browser-home.png",
       "width": 1440,
       "height": 900,
       "source": "Chrome component test, not native Mac",
-      "sha256": "f1416d9ca618b41f67a8d51dbf80d0f997ea6646ebc712f034e9f7b53b03c71c"
+      "sha256": "87e98fc15297e7035da3eb4a0dbf051737ff49ed0484f03cf639203b571e7312"
     },
     {
       "file": "docs/desktop-workbench/screenshots/browser-library.png",
       "width": 1440,
       "height": 900,
       "source": "Chrome component test, not native Mac",
-      "sha256": "940f1b206b0e4eccd75d3b9b124e5cef8685aed7ca16fa96cbc097f3974bd1c5"
+      "sha256": "9a77245e1e3ad22ad12cc87512575658e7730e604a843f76a92846d25b414447"
     },
     {
       "file": "docs/desktop-workbench/screenshots/browser-methods.png",
       "width": 1440,
       "height": 900,
       "source": "Chrome component test, not native Mac",
-      "sha256": "bfb1eb06e09371b8fb7b3caf57496c3c4e8773bec6e127032993e7bf0adab21d"
+      "sha256": "3d168cde58f10022cb70ea39a4a12285d2f618e206086e0b5787b7c33749a529"
     },
     {
       "file": "docs/desktop-workbench/screenshots/browser-radar.png",
       "width": 1440,
       "height": 900,
       "source": "Chrome component test, not native Mac",
-      "sha256": "352ed606b13e51b5bec8327ce0ec88409fd7cd39f82ac57f1379f91351d090ea"
+      "sha256": "b057e1f8f1594f1de6b26dffd55e27b80a2d3cb2b51d3fb7122b1e1ce90fc774"
     },
     {
       "file": "docs/desktop-workbench/screenshots/browser-settings.png",
       "width": 1440,
       "height": 900,
       "source": "Chrome component test, not native Mac",
-      "sha256": "d150e4af2668a64f30b088ed0079ac555e6816414c0a0792fb55c0de2942a8da"
+      "sha256": "db5fe12c1871a374599df4b98b40b9317e54b7412767a3ec196758938167e79a"
     },
     {
       "file": "docs/desktop-workbench/screenshots/browser-works.png",
       "width": 1440,
       "height": 900,
       "source": "Chrome component test, not native Mac",
-      "sha256": "06815a1fcf2ba86e5725485e377515fbabc92e6079eafa7b95e5a35784294cf1"
+      "sha256": "cc071e5a20423a31ca2551277229b53a2af80ece22f398c0df5ea4698546e87b"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-analysis-playing.jpg",
+      "width": 2048,
+      "height": 1360,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "e948869786cf17b72cf1077f5a6aa8175e280e62aef4249321f383da7668da76"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-analysis.jpg",
+      "width": 3024,
+      "height": 1734,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "b4187acbabfdd8738f9b69c4afeee3e1a0cba7979e3a2dcc584930cda0f9285c"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-brand-settings.jpg",
+      "width": 2048,
+      "height": 1360,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "b81731449a81491fec627bb46f16010009e08e7e8f589771b611b50ce35e432c"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-creator.jpg",
+      "width": 3024,
+      "height": 1734,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "dc8449dc29dc0fdf82812a49c979b8d8382d8214ccd6caf65971017036304c74"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-final-personal-home.jpg",
+      "width": 2048,
+      "height": 1360,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "364394b51ec2ffc8a313d87f8d275dd09ab0f7aa0717e344ca6af0007e09a42a"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-fullscreen.jpg",
+      "width": 3024,
+      "height": 1898,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "40ada3d696cf3d0d1852041261dff9e0a10d9d1739c44b6b5a3305477eff4227"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-home.jpg",
+      "width": 3024,
+      "height": 1734,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "d6e7d1f5269292a45183b1e7927341ba34a34edeca09406219863a9d36cbf306"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-library.jpg",
+      "width": 3024,
+      "height": 1734,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "795db68c1e4548b876cee4ea13a2172f2f00dfb62814681456a304c91538012d"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-methods.jpg",
+      "width": 3024,
+      "height": 1734,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "82a02fd9b35e71443511cb05498e583882d93b1908dc3dce9cdd103b9d927692"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-min-analysis.jpg",
+      "width": 2048,
+      "height": 1360,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "106f538fdf42cf5469977bea146077a0985727c936bd9d3ff088f87a0ba10ad0"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-min-creator.jpg",
+      "width": 2048,
+      "height": 1360,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "127afdcbf5c1e7ee1a307c0e6dbe24450bda54bb3f0737095b13f9183c54107a"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-min-home.jpg",
+      "width": 2048,
+      "height": 1360,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "4c2193e34d2694365a279104efb5d58294df41cd5a20b3ab3704b010a1f1de7b"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-min-library.jpg",
+      "width": 2048,
+      "height": 1360,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "3e3e2ae5be044f831de6896629e3eb69ed24d7cf375ff63d78d228136ade27b3"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-min-methods.jpg",
+      "width": 2048,
+      "height": 1360,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "a5d9b5f50ceb0d8ef59178e5795b5290330ad4aea1bf09913b6b8424316dc6f8"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-min-radar.jpg",
+      "width": 2048,
+      "height": 1360,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "34957e58885180844fe35e6a04afaa2b3209885847f8c0a7d9c131a554a7da1a"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-min-settings.jpg",
+      "width": 2048,
+      "height": 1360,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "50fff0e7f7ef6a562b89998ce75d4daf8206ba6cd52d380e6463043388bffd77"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-min-works.jpg",
+      "width": 2048,
+      "height": 1360,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "9e23e3b72ea1b5f49d371dc8393427ee3bf40a9f7947e96b2d24d22d9faf36fd"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-native-relaunch.jpg",
+      "width": 2048,
+      "height": 1360,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "7434af407b69fef813699c568ef8aff70abf5d1e408197edc060381d6b090ce4"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-personal-home.jpg",
+      "width": 2048,
+      "height": 1360,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "364394b51ec2ffc8a313d87f8d275dd09ab0f7aa0717e344ca6af0007e09a42a"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-quit-confirm.jpg",
+      "width": 2048,
+      "height": 1360,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "067d2a8d90e0b6bc531fb7c2b8ec6fe0b716c8255d68235d0079c0d49420a760"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-radar.jpg",
+      "width": 3024,
+      "height": 1734,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "0fb6964797a0b4a4ba78830407e23b7e6baacbb1495b1a870e6a1fe6caab84f8"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-settings.jpg",
+      "width": 3024,
+      "height": 1734,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "4c82801295bff927db344f668d007614c86f8e8be322b73b5db36ed19457b189"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-wide-settings.jpg",
+      "width": 3024,
+      "height": 1734,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "4c82801295bff927db344f668d007614c86f8e8be322b73b5db36ed19457b189"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-width-1024.jpg",
+      "width": 2048,
+      "height": 1360,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "3d52cac05f75c93db6ba0ae19946b0d007de83ce9c2fab105636101ce4d9c852"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-window-zoomed.jpg",
+      "width": 3024,
+      "height": 1734,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "4c82801295bff927db344f668d007614c86f8e8be322b73b5db36ed19457b189"
+    },
+    {
+      "file": "docs/desktop-workbench/screenshots/desktop-works.jpg",
+      "width": 3024,
+      "height": 1734,
+      "dimensions": "image pixels, not logical window size",
+      "source": "real Mac Tauri/WKWebView window captured by native CUA",
+      "captureBuild": "FrameWeave rebrand",
+      "sha256": "5b1b3fec1707c8ca4718fc4409ed05ddd53646df3354bb8493c57626fa1e1511"
     }
   ],
   "sourceSha256": {
@@ -110,7 +377,7 @@
     "apps/desktop/src/adapters/desktop.ts": "a1569954693d82f68a606889819f9df6f7f3eaa1d5a06880e8caf5497b0cbf7e",
     "apps/desktop/src/adapters/disconnected.ts": "011a99ed60493d3de7d34b731b6973cc874d00ecbe1b79eddf8f20813401e54c",
     "apps/desktop/src/app/Dialogs.tsx": "d35ed1e51c6f76c4affeff21143e2c23a468dbb65daa6a27cd2060d2b76f3ee3",
-    "apps/desktop/src/app/Shell.tsx": "68b86726e80ced1d6de3e89763629801c40e71637ddb71a3f3be552b9aa31e5f",
+    "apps/desktop/src/app/Shell.tsx": "ff698516ca3e9e7247c242f61c0d729134d43071be103fecc083d771a02a39d1",
     "apps/desktop/src/app/context.tsx": "4a26f9ffb5df56dcbacf0c18e0be20ae27cc6790ea9ef64b4beb37832d712c99",
     "apps/desktop/src/components/ui.tsx": "96cf89e28a0e1051aebad0fa7b3338e8f867fcfd2272bee109acc59991059df6",
     "apps/desktop/src/domain.ts": "ffd89084a953f4750ba9445d8c04005af4fe409817eb91b2fda80b50fbeeb28a",
@@ -120,14 +387,14 @@
     "apps/desktop/src/features/Library.tsx": "e271af20ca2e53461f55a684edcb29611ac7f38ec58cb9a4463286d45c1eb3f5",
     "apps/desktop/src/features/Methods.tsx": "fc823da3abe87068fbef575f88ec2ef8bbe424075c6d5fd00df6bffc0ac39989",
     "apps/desktop/src/features/Radar.tsx": "bad986ff24f275a1a886807ddceb7227c66591898449ade43cbce8172da75566",
-    "apps/desktop/src/features/Settings.tsx": "f2c135ff3bd4d52ad4ba41809d5dad9a52290efbab17b581a27f3189773c2049",
+    "apps/desktop/src/features/Settings.tsx": "2a3af714b30fab76163b7f3e5d01a763e218af3e463d0a7066ed02b2eac374d7",
     "apps/desktop/src/features/Works.tsx": "ee8472ac32226ca9e7edf50143069a96d5e104627a6e7aba690c497084e26962",
     "apps/desktop/src/fixtures/demo.ts": "1f0395c0f15b76de49ae4245ae9b2842af4ecaf50969ed108ac11629fa3bbaac",
     "apps/desktop/src/main.tsx": "6c2ca5004122cdf590685261371a807fcaaaac7e5f00f82cb74967d49817a79f",
     "apps/desktop/src/ports/index.ts": "c240020b7f42f716bbd78337516edbc1dbadc9cade24490deb1d6f9a597fd23e",
     "apps/desktop/src/services.ts": "eb2171a28470f6c94d4c29400b3d0efa4f4f594c9c0d0bb81193be4b15ab5961",
-    "apps/desktop/src/styles.css": "4a6ebba09a178f3b6be8c78fb14ba6fc5d326be417acbbcd47835f94ff9eacad",
-    "apps/desktop/src-tauri/src/lib.rs": "8f8c9ea64464ed578a60f299d56fab356c63841352d2ac38fd20faf088d68fe0",
-    "apps/desktop/src-tauri/src/main.rs": "a33e1335eb6f497ff7015df514056b5ff68a417e221369b823d48ba386dd24fb"
+    "apps/desktop/src/styles.css": "480dd812ae6f33c1b8413a0af5c0c4911f303ead47a2a0fde2f6f8df1d035797",
+    "apps/desktop/src-tauri/src/lib.rs": "c16ab24a67daa15346784fef5adfe8ca3ea1e82de81794c3bb4adf07aa37b112",
+    "apps/desktop/src-tauri/src/main.rs": "f2a7f3e4390426b97131d1a19b7b9f5fd559d89117bcc22d6aba87af383f26f7"
   }
 }

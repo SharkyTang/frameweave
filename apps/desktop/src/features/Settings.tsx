@@ -26,7 +26,7 @@ export function Settings() {
     document.documentElement.dataset.density ?? "normal",
   );
   const diagnostics = useRef<HTMLTextAreaElement>(null);
-  const diag = `逆向轻抖 ${c.info?.version ?? "0.1.0"}\n阶段: D2\n环境: ${c.info?.native ? "Tauri 桌面" : "浏览器组件预览"}\n平台: ${c.info?.platform ?? "读取中"} / ${c.info?.architecture ?? "读取中"}\n资料目录: <应用资料目录>\n业务数据库: 尚未建立（D3）\nAI / 下载插件: 未接入\n本次空间: ${c.space === "demo" ? "演示" : "个人"}\n包含个人脚本或媒体: 否`;
+  const diag = `FrameWeave · 映构 ${c.info?.version ?? "0.1.0"}\n阶段: D2\n环境: ${c.info?.native ? "Tauri 桌面" : "浏览器组件预览"}\n平台: ${c.info?.platform ?? "读取中"} / ${c.info?.architecture ?? "读取中"}\n资料目录: <应用资料目录>\n业务数据库: 尚未建立（D3）\nAI / 下载插件: 未接入\n本次空间: ${c.space === "demo" ? "演示" : "个人"}\n包含个人脚本或媒体: 否`;
   return (
     <>
       <PageTitle
@@ -169,7 +169,7 @@ export function Settings() {
             <div className="app-info-logo">
               <Monitor size={29} />
             </div>
-            <h2>逆向轻抖</h2>
+            <h2>FrameWeave · 映构</h2>
             <p className="subtle">视频创作者的本地工作台</p>
             <Badge tone="purple">
               V{c.info?.version ?? "0.1.0"} · D2 桌面预览
