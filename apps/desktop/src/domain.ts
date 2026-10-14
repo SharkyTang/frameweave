@@ -18,7 +18,17 @@ export interface VideoAsset {
   tags: string[];
   favorite: boolean;
   status: MediaStatus;
-  source: "demo" | "link";
+  source: "demo" | "link" | "manual_import";
+  revision?: number;
+  originalFilename?: string;
+  byteSize?: number;
+  sha256?: string;
+  importedAt?: number;
+  updatedAt?: number;
+  archivedAt?: number;
+  width?: number;
+  height?: number;
+  playbackStatus?: "unknown" | "metadata_loaded" | "load_failed";
   poster: string;
   durationMs?: number;
   learningGoal: string;
@@ -109,7 +119,8 @@ export interface Capability {
   reason: string;
 }
 export interface AppError {
-  code: "NOT_CONNECTED" | "NOT_IMPLEMENTED";
+  code: string;
+  retryable?: boolean;
   message: string;
 }
 export type Result<T> = { ok: true; value: T } | { ok: false; error: AppError };
@@ -190,7 +201,10 @@ export function filterAssets(
         .includes(keyword) &&
       (filter === "all" ||
         (filter === "favorite" && a.favorite) ||
-        (filter === "local" && a.status === "available") ||
+        (filter === "local" &&
+          a.status === "available" &&
+          (a.source !== "manual_import" ||
+            a.playbackStatus === "metadata_loaded")) ||
         (filter === "link" && a.status === "link_only")),
   );
 }
@@ -211,3 +225,91 @@ export function parseRoute(raw: string): {
     return { page: "home", path: "/home" };
   return { page: match[1] as Page, id: match[2], path };
 }
+
+export interface LibraryInfo {
+  isolatedProbe?: boolean;
+  ready: boolean;
+  schemaVersion: number;
+  journalMode: string;
+  recoveryWarnings: number;
+  maxFiles: number;
+  maxFileBytes: number;
+}
+export interface AssetPatch {
+  id: string;
+  expectedRevision: number;
+  title: string;
+  description: string;
+  learningGoal: string;
+  tags: string[];
+  favorite: boolean;
+  archived: boolean;
+}
+export interface Selection {
+  token?: string;
+  files: { filename: string; byteSize: number }[];
+}
+export type ImportState =
+  | "queued"
+  | "copying"
+  | "validating"
+  | "staged"
+  | "committing"
+  | "imported"
+  | "duplicate"
+  | "repaired"
+  | "failed"
+  | "cancelled"
+  | "interrupted"
+  | "needs_review";
+export interface ImportItem {
+  id: string;
+  filename: string;
+  state: ImportState;
+  bytesCopied: number;
+  totalBytes: number;
+  assetId?: string;
+  archived?: boolean;
+  error?: AppError;
+}
+export interface ImportBatch {
+  id: string;
+  active: boolean;
+  items: ImportItem[];
+}
+export interface PlaybackSource {
+  assetId: string;
+  url: string;
+  contentHash: string;
+  playbackToken: string;
+}
+export interface MediaMetadata {
+  id: string;
+  contentHash: string;
+  playbackToken: string;
+  durationMs: number;
+  width: number;
+  height: number;
+}
+export const importTerminal = (state: ImportState) =>
+  [
+    "imported",
+    "duplicate",
+    "repaired",
+    "failed",
+    "cancelled",
+    "interrupted",
+    "needs_review",
+  ].includes(state);
+export const nativeErrorMessage = (error: unknown) =>
+  error instanceof Error ? error.message : "本机操作失败，请重试。";
+export const assetPatch = (asset: VideoAsset): AssetPatch => ({
+  id: asset.id,
+  expectedRevision: asset.revision ?? 0,
+  title: asset.title,
+  description: asset.description,
+  learningGoal: asset.learningGoal,
+  tags: asset.tags,
+  favorite: asset.favorite,
+  archived: asset.archived,
+});

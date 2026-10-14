@@ -1,0 +1,26 @@
+{
+  "command": [
+    "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/.toolchains/rustup/toolchains/stable-aarch64-apple-darwin/bin/rustfmt",
+    "--edition",
+    "2021",
+    "--check",
+    "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop/src-tauri/src/commands.rs",
+    "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop/src-tauri/src/import_tests.rs",
+    "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop/src-tauri/src/imports.rs",
+    "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop/src-tauri/src/lib.rs",
+    "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop/src-tauri/src/personal.rs",
+    "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop/src-tauri/src/personal_tests.rs",
+    "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop/src-tauri/build.rs"
+  ],
+  "scope": "D3 changed/new Rust files; inherited unchanged main.rs excluded with its all-tree formatting difference preserved separately",
+  "startedAtUtc": "2026-10-14T21:56:58.318822+00:00",
+  "finishedAtUtc": "2026-10-14T21:56:58.360459+00:00",
+  "exitCode": 0,
+  "log": "rustfmt.log",
+  "additionalExistingFormatCheck": {
+    "exitCode": 1,
+    "path": "src-tauri/src/main.rs",
+    "unchangedFromProtectedBaseline": true,
+    "evidence": "rustfmt-existing-main.log"
+  }
+}

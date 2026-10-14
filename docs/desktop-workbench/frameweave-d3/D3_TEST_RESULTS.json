@@ -1,0 +1,893 @@
+{
+  "stage": "D3",
+  "recordedAtUtc": "2026-10-14T21:58:17.662749+00:00",
+  "summary": {
+    "implementation": "D3 core implemented; primary native import→save→play/seek→quit/restart loop verified",
+    "all54Passed": false,
+    "acceptanceCounts": {
+      "PASS": 50,
+      "MANUAL_PENDING": 3,
+      "NOT_RUN": 1
+    },
+    "componentTestsPassed": 25,
+    "rustTestsPassed": 27,
+    "browserTestsPassed": 10,
+    "typecheck": "PASS",
+    "uiBuild": "PASS",
+    "prettier": "PASS",
+    "rustfmt": "PASS",
+    "desktopBuild": "PASS",
+    "packaging": "PASS",
+    "manualPending": [
+      "D3-V13 import RSS series",
+      "D3-V37 corrupt/unsupported native decode case",
+      "D3-V48 actual Chinese IME candidates"
+    ],
+    "notRun": [
+      "D3-V51 physical system offline"
+    ],
+    "rustfmtScope": "D3 changed/new Rust files; inherited unchanged main.rs all-tree difference recorded"
+  },
+  "appExecutableSha256": "407b4b2ff9ca89eb93c79bba28bc504f5b1e133f2f329033acdd14e8ff97fc20",
+  "nativeEnvironment": "macOS 26.6.2 (25G83), arm64",
+  "testRoot": "/private/tmp/frameweave-d3-native-validation",
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "workingDirectory": "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop",
+      "startedAtUtc": "2026-10-14T21:17:52.252521+00:00",
+      "finishedAtUtc": "2026-10-14T21:17:53.143030+00:00",
+      "exitCode": 0,
+      "log": "typecheck.log",
+      "evidence": "evidence/typecheck.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "ui:build"
+      ],
+      "workingDirectory": "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop",
+      "startedAtUtc": "2026-10-14T21:18:15.729560+00:00",
+      "finishedAtUtc": "2026-10-14T21:18:17.773387+00:00",
+      "exitCode": 0,
+      "log": "ui-build.log",
+      "evidence": "evidence/ui-build.log"
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "workingDirectory": "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop",
+      "startedAtUtc": "2026-10-14T21:17:54.069562+00:00",
+      "finishedAtUtc": "2026-10-14T21:17:56.296194+00:00",
+      "exitCode": 0,
+      "log": "components.log",
+      "testsPassed": 25,
+      "evidence": "evidence/components.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "native:test"
+      ],
+      "workingDirectory": "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop",
+      "startedAtUtc": "2026-10-14T21:18:55.538233+00:00",
+      "finishedAtUtc": "2026-10-14T21:19:00.974157+00:00",
+      "exitCode": 0,
+      "log": "rust.log",
+      "testsPassed": 27,
+      "evidence": "evidence/rust.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:ui"
+      ],
+      "workingDirectory": "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop",
+      "startedAtUtc": "2026-10-14T21:18:15.309843+00:00",
+      "finishedAtUtc": "2026-10-14T21:18:22.385443+00:00",
+      "exitCode": 0,
+      "log": "browser.log",
+      "testsPassed": 10,
+      "evidence": "evidence/browser.log"
+    },
+    {
+      "command": [
+        "./node_modules/.bin/prettier",
+        "--check",
+        "src",
+        "tests",
+        "scripts/desktop.mjs",
+        "src-tauri/tauri.conf.json",
+        "src-tauri/capabilities/main.json"
+      ],
+      "workingDirectory": "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop",
+      "startedAtUtc": "2026-10-14T21:18:14.939256+00:00",
+      "finishedAtUtc": "2026-10-14T21:18:15.325069+00:00",
+      "exitCode": 0,
+      "log": "prettier.log",
+      "evidence": "evidence/prettier.log"
+    },
+    {
+      "command": [
+        "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/.toolchains/rustup/toolchains/stable-aarch64-apple-darwin/bin/rustfmt",
+        "--edition",
+        "2021",
+        "--check",
+        "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop/src-tauri/src/commands.rs",
+        "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop/src-tauri/src/import_tests.rs",
+        "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop/src-tauri/src/imports.rs",
+        "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop/src-tauri/src/lib.rs",
+        "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop/src-tauri/src/personal.rs",
+        "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop/src-tauri/src/personal_tests.rs",
+        "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop/src-tauri/build.rs"
+      ],
+      "scope": "D3 changed/new Rust files; inherited unchanged main.rs excluded with its all-tree formatting difference preserved separately",
+      "startedAtUtc": "2026-10-14T21:56:58.318822+00:00",
+      "finishedAtUtc": "2026-10-14T21:56:58.360459+00:00",
+      "exitCode": 0,
+      "log": "rustfmt.log",
+      "additionalExistingFormatCheck": {
+        "exitCode": 1,
+        "path": "src-tauri/src/main.rs",
+        "unchangedFromProtectedBaseline": true,
+        "evidence": "rustfmt-existing-main.log"
+      },
+      "evidence": "evidence/rustfmt.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "desktop:build"
+      ],
+      "workingDirectory": "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop",
+      "startedAtUtc": "2026-10-14T21:19:13.042348+00:00",
+      "finishedAtUtc": "2026-10-14T21:19:28.745440+00:00",
+      "exitCode": 0,
+      "log": "desktop-build.log",
+      "evidence": "evidence/desktop-build.log"
+    }
+  ],
+  "correctedFailure": {
+    "evidence": [
+      "evidence/rust-attempt1.log",
+      "evidence/rust-attempt1.json"
+    ],
+    "reason": "io::Error不支持PartialEq；探针标记比较改为ok().as_deref()==Some(...)后Rust27项和最终构建通过。"
+  },
+  "acceptance": [
+    {
+      "id": "D3-V01",
+      "scenario": "工程和品牌身份",
+      "expected": "identifier、App 名、包名沿用 FrameWeave；D2 包仍保留",
+      "status": "PASS",
+      "method": "配置、包身份检查及D2保护副本核对",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/workspace-audit.json"
+      ],
+      "notes": "identifier、npm/Rust名称沿用；D2字节对比由打包脚本核验。"
+    },
+    {
+      "id": "D3-V02",
+      "scenario": "D2 → D3 首次启动",
+      "expected": "原 shell.json 窗口/路由不丢；新增业务库，不发生第二次品牌迁移",
+      "status": "PASS",
+      "method": "继承源码审查、壳单测及最终隔离根冷启动",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log",
+        "D3_NATIVE_VALIDATION.md"
+      ],
+      "notes": "shell原格式与路由恢复保留；正式shell仅x/y相对保护副本变化；没有第二次迁移。"
+    },
+    {
+      "id": "D3-V03",
+      "scenario": "空个人库",
+      "expected": "没有自动播种演示素材/笔记，显示真实空态",
+      "status": "PASS",
+      "method": "Rust空库测试、原生首次空态与React个人空态",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log",
+        "evidence/components.log",
+        "D3_NATIVE_VALIDATION.md"
+      ],
+      "notes": "个人Workspace不seed演示，D4/D5集合为空。"
+    },
+    {
+      "id": "D3-V04",
+      "scenario": "建库与重开",
+      "expected": "schema 正确、迁移不重复，重新打开数据库能读回记录",
+      "status": "PASS",
+      "method": "Rust初始化重开与多次最终包冷启动",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log",
+        "evidence/native-final-state.json"
+      ],
+      "notes": "schema=1，同一素材和修订保留，迁移不重复。"
+    },
+    {
+      "id": "D3-V05",
+      "scenario": "schema 太新/损坏",
+      "expected": "明确阻断，不删除重建、不返回“空库成功”",
+      "status": "PASS",
+      "method": "Rust隔离库过新、损坏与迁移失败测试",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log"
+      ],
+      "notes": "原库保留并报错；不删库重建。没有破坏正式AppData。"
+    },
+    {
+      "id": "D3-V06",
+      "scenario": "外键/唯一约束/事务",
+      "expected": "失败完整回滚，标签关系和 asset id 一致",
+      "status": "PASS",
+      "method": "Rust外键、内容唯一、触发器事务失败测试",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log"
+      ],
+      "notes": "资产资料与标签失败回滚；最终foreign_key_check无异常。"
+    },
+    {
+      "id": "D3-V07",
+      "scenario": "中文/emoji/HTML 字段",
+      "expected": "保存检索可用；HTML 当纯文本，无脚本执行",
+      "status": "PASS",
+      "method": "Rust字段校验、原生资料输入保存与重启读回",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log",
+        "screenshots/native-first-library-saved.jpg",
+        "evidence/native-final-state.json"
+      ],
+      "notes": "中文、emoji、<b>文本作为文字保存；不是中文输入法候选组合验收。"
+    },
+    {
+      "id": "D3-V08",
+      "scenario": "原生文件选择取消",
+      "expected": "无失败 Toast、无空素材、无假成功",
+      "status": "PASS",
+      "method": "原生选择取消及React测试",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "D3_NATIVE_VALIDATION.md",
+        "evidence/components.log"
+      ],
+      "notes": "取消返回无token/空列表，不启动批次，不建空素材。"
+    },
+    {
+      "id": "D3-V09",
+      "scenario": "实际单文件导入",
+      "expected": "正式管理副本与数据库记录匹配，源文件未改动",
+      "status": "PASS",
+      "method": "最终原生导入与分块SHA核对",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/native-after-cancel.json",
+        "D3_NATIVE_VALIDATION.md"
+      ],
+      "notes": "41,930,946字节与2,096,466,000字节副本均与源SHA相同；成功是SQL终态。"
+    },
+    {
+      "id": "D3-V10",
+      "scenario": "多文件部分失败",
+      "expected": "每项真实结果，成功项保留，失败项可单独重试",
+      "status": "PASS",
+      "method": "Rust混合成功/失败与React逐项结果测试",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log",
+        "evidence/components.log"
+      ],
+      "notes": "失败可重新原生选择；成功项保留。没有声称原生多选失败场景也已人工走完。"
+    },
+    {
+      "id": "D3-V11",
+      "scenario": "空文件/伪媒体/目录",
+      "expected": "合理拒绝，不产生可播放假记录",
+      "status": "PASS",
+      "method": "Rust空文件、假头、目录、符号链接测试",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log"
+      ],
+      "notes": "初筛拒绝无可靠媒体头/非普通文件；FTYP通过不等于能解码。"
+    },
+    {
+      "id": "D3-V12",
+      "scenario": "限额",
+      "expected": "批量数/文件大小前后端一致；明确这是产品阈值",
+      "status": "PASS",
+      "method": "Rust边界及LibraryInfo/UI配置核对",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log",
+        "D3_NATIVE_VALIDATION.md"
+      ],
+      "notes": "20项/5GiB，64MiB预留；是产品限额，不是已测全部编码或5GiB压力指标。"
+    },
+    {
+      "id": "D3-V13",
+      "scenario": "大文件",
+      "expected": "分块复制、UI 可响应、内存不随整片大小线性加载；记录实测体量",
+      "status": "MANUAL_PENDING",
+      "method": "1.95GiB原生成功导入与取消；静态1MiB缓冲审查",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "D3_NATIVE_VALIDATION.md",
+        "evidence/native-after-cancel.json"
+      ],
+      "notes": "UI继续/退出可响应；未采集导入期间RSS序列。现有124,846,080/130,383,872字节峰值只覆盖播放会话，不能冒充导入内存压力测试。"
+    },
+    {
+      "id": "D3-V14",
+      "scenario": "磁盘空间不足",
+      "expected": "预检查或实际写入错误真实暴露，源文件安全，无半成功资产",
+      "status": "PASS",
+      "method": "Rust预检查边界及ENOSPC/SQLite DiskFull错误映射",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log"
+      ],
+      "notes": "模拟/逻辑故障通过；未实际填满系统磁盘，未用正式数据故障注入。"
+    },
+    {
+      "id": "D3-V15",
+      "scenario": "源文件变化/读失败",
+      "expected": "报错或安全中断，不将未核实副本记为成功",
+      "status": "PASS",
+      "method": "Rust选择后变化、复制中变化、源读失败测试",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log"
+      ],
+      "notes": "dev/inode/size/mtime核验；不发布未核实内容。"
+    },
+    {
+      "id": "D3-V16",
+      "scenario": "同内容不同名字",
+      "expected": "复用 asset id，只保留一份正式副本",
+      "status": "PASS",
+      "method": "Rust去重和最终包重复导入",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log",
+        "screenshots/native-final-duplicate-ax.txt",
+        "evidence/native-after-cancel.json"
+      ],
+      "notes": "返回相同asset id与duplicate，不新增正式副本或覆盖资料。"
+    },
+    {
+      "id": "D3-V17",
+      "scenario": "同名字不同内容",
+      "expected": "独立素材，不覆盖先前视频",
+      "status": "PASS",
+      "method": "Rust同名不同内容测试",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log"
+      ],
+      "notes": "内容SHA唯一，正式文件由UUID命名，不覆盖。"
+    },
+    {
+      "id": "D3-V18",
+      "scenario": "已归档重复导入",
+      "expected": "不静默恢复或覆盖用户资料，返回准确状态",
+      "status": "PASS",
+      "method": "Rust已归档重复导入测试",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log"
+      ],
+      "notes": "保留archived_at、标题与标签，不静默恢复。"
+    },
+    {
+      "id": "D3-V19",
+      "scenario": "复制中取消",
+      "expected": "worker 停止，已成功项保留，明确归属暂存被清理",
+      "status": "PASS",
+      "method": "Rust中途取消与最终包真实取消",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log",
+        "screenshots/native-final-cancel-exit-ax.txt",
+        "evidence/native-after-cancel.json"
+      ],
+      "notes": "复制519,045,120/2,096,466,000字节后cancelled，暂存为空，既有成功项仍在。"
+    },
+    {
+      "id": "D3-V20",
+      "scenario": "双击导入/重复请求",
+      "expected": "不重复建队列或素材；终态可查询",
+      "status": "PASS",
+      "method": "Rust同token幂等与写入所有权测试",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log"
+      ],
+      "notes": "同token返回既有batch；原生选框防重入；批次终态可查询。"
+    },
+    {
+      "id": "D3-V21",
+      "scenario": "复制中终止再启动",
+      "expected": "识别中断，不假成功，不扫描寻找用户原文件",
+      "status": "PASS",
+      "method": "Rust构造中断状态后重新实例化服务",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log"
+      ],
+      "notes": "queued/copying/validating清理仅明确归属.part并标interrupted。没有做实际断电。"
+    },
+    {
+      "id": "D3-V22",
+      "scenario": "正式文件发布后、SQL 前中断",
+      "expected": "根据受控尝试记录幂等恢复，或安全隔离并明确待检查",
+      "status": "PASS",
+      "method": "Rust构造staged/committing发布窗口与SQL失败",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log"
+      ],
+      "notes": "校验SHA/大小后幂等补记；异常needs_review，未知文件不删。"
+    },
+    {
+      "id": "D3-V23",
+      "scenario": "SQL 后、UI 确认前中断",
+      "expected": "只读回既有成功，不产生第二份副本",
+      "status": "PASS",
+      "method": "Rust构造已提交未清理状态与重开",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log"
+      ],
+      "notes": "读回已成功资产，仅清理已知暂存，不复制第二份。"
+    },
+    {
+      "id": "D3-V24",
+      "scenario": "删除/移动测试源文件",
+      "expected": "管理副本继续可用；只能操作隔离测试源文件",
+      "status": "PASS",
+      "method": "Rust源删除及最终包源移走后冷启动播放",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log",
+        "screenshots/native-final-source-moved-ax.txt"
+      ],
+      "notes": "仅移动自制隔离源；管理副本03:00仍播放，随后恢复测试源。"
+    },
+    {
+      "id": "D3-V25",
+      "scenario": "管理副本缺失",
+      "expected": "保留资料、显示缺失、不崩溃、不删记录",
+      "status": "PASS",
+      "method": "最终包移走隔离管理副本后的冷启动",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log",
+        "screenshots/native-final-missing-ax.txt"
+      ],
+      "notes": "资料与目标保留、明确缺失提示、重新关联入口；没有删DB记录。"
+    },
+    {
+      "id": "D3-V26",
+      "scenario": "同内容修复缺失副本",
+      "expected": "恢复同一 asset id 与用户资料，不新增重复素材",
+      "status": "PASS",
+      "method": "Rust同内容重新导入修复测试",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log"
+      ],
+      "notes": "同asset id和revision/资料保留。额外原生修复选择器提交未完成，不写作原生修复已通过。"
+    },
+    {
+      "id": "D3-V27",
+      "scenario": "更新标题/标签/收藏",
+      "expected": "DB 确认后才提示保存成功，重启后保留",
+      "status": "PASS",
+      "method": "原生明确保存、SQLite读取和最终包冷启动",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/components.log",
+        "evidence/native-final-state.json"
+      ],
+      "notes": "标题、备注、目标、三标签、favorite=true，revision=4；未确认落库不显示成功。"
+    },
+    {
+      "id": "D3-V28",
+      "scenario": "保存失败与修订冲突",
+      "expected": "输入不丢，旧请求不覆盖新状态，可重试/重新确认",
+      "status": "PASS",
+      "method": "React失败保留/冲突重试与Rust事务/修订",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/components.log",
+        "evidence/rust.log"
+      ],
+      "notes": "保留输入；冲突需显式刷新修订再确认，不自动覆写。"
+    },
+    {
+      "id": "D3-V29",
+      "scenario": "归档与恢复",
+      "expected": "状态重启保留，不删除副本，筛选结果正确",
+      "status": "PASS",
+      "method": "原生归档/恢复与Rust持久化测试",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log",
+        "D3_NATIVE_VALIDATION.md"
+      ],
+      "notes": "归档不删副本；主动恢复，最终原素材archived_at=null。"
+    },
+    {
+      "id": "D3-V30",
+      "scenario": "首页真实素材",
+      "expected": "与个人库一致，无示例统计或虚假创作项目",
+      "status": "PASS",
+      "method": "最终包真实首页及持久化库核对",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "screenshots/native-final-wide-home-ax.txt",
+        "evidence/native-final-state.json"
+      ],
+      "notes": "最近素材来自SQLite，个人项目/方法未实现字段不填演示统计。"
+    },
+    {
+      "id": "D3-V31",
+      "scenario": "切换/重置演示",
+      "expected": "个人库不变，演示退出后仍重置，缓存不串库",
+      "status": "PASS",
+      "method": "React演示切换/重置隔离、Rust不seed",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/components.log",
+        "evidence/rust.log"
+      ],
+      "notes": "无个人写入命令；原生切换观察另记，未声称最终原生重置已完整执行。"
+    },
+    {
+      "id": "D3-V32",
+      "scenario": "个人拆解页",
+      "expected": "正确视频与资料，无示例字幕/笔记/AI 报告混入",
+      "status": "PASS",
+      "method": "最终个人分析页和组件隔离检查",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "screenshots/native-final-wide-analysis-ax.txt",
+        "evidence/components.log"
+      ],
+      "notes": "只有该视频/资料，D4占位明确，无示例字幕/笔记/AI报告。"
+    },
+    {
+      "id": "D3-V33",
+      "scenario": "生产原生画面",
+      "expected": "实际 `.app` 能看到正向素材，不以浏览器截图替代",
+      "status": "PASS",
+      "method": "人类确认最终生产.app真实画面",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "D3_NATIVE_VALIDATION.md",
+        "evidence/native-final-state.json"
+      ],
+      "notes": "用户：最终包画面和音调都正常。截图视频区域灰色，保留原图而非浏览器替换。"
+    },
+    {
+      "id": "D3-V34",
+      "scenario": "生产原生音频",
+      "expected": "有声音的测试片实际可听；无声短片不算通过",
+      "status": "PASS",
+      "method": "人类听感确认最终H264/AAC测试片",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "D3_NATIVE_VALIDATION.md",
+        "evidence/native-final-state.json"
+      ],
+      "notes": "用户确认440Hz音调可听；不是无声D2示例。"
+    },
+    {
+      "id": "D3-V35",
+      "scenario": "原生播放/暂停/倍速",
+      "expected": "控制真实有效，切页停止旧媒体",
+      "status": "PASS",
+      "method": "最终原生播放暂停/1.5倍速/切页及清理审查",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "screenshots/native-final-long-paused-ax.txt",
+        "D3_NATIVE_VALIDATION.md"
+      ],
+      "notes": "播放时间推进，Pause→Play，1.5×；切页移除媒体，cleanup执行pause/remove src/load。工具无法单独听辨切页后的静音。"
+    },
+    {
+      "id": "D3-V36",
+      "scenario": "原生中后段 seek",
+      "expected": "能跳到实际时间，非仅改变 UI 进度条",
+      "status": "PASS",
+      "method": "最终原生3分钟及150分钟视频seek",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "screenshots/native-final-seek-ax.txt",
+        "screenshots/native-final-long-seek-ax.txt",
+        "screenshots/native-final-long-paused-ax.txt"
+      ],
+      "notes": "3分钟视频跳到90s后实际时间继续；1.95GiB长片跳到约75分钟后继续。坐标后段点击/AX直接设值未生效，不虚报另一个后段值。"
+    },
+    {
+      "id": "D3-V37",
+      "scenario": "损坏/不支持编码",
+      "expected": "明确不能播放或未验证，不自动转码/偷偷联网",
+      "status": "MANUAL_PENDING",
+      "method": "Rust头部拒绝与实现审查；原生损坏候选未提交",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "screenshots/native-final-picker-unsupported-pending-ax.txt",
+        "evidence/rust.log"
+      ],
+      "notes": "37字节FTYP候选在原生选择器Open禁用，未入库，不能冒充实际解码失败验收。MOV/HEVC等未测；无转码/联网后备。"
+    },
+    {
+      "id": "D3-V38",
+      "scenario": "元数据准确性",
+      "expected": "时长/尺寸来自实际加载，非法或过期回调被拒绝",
+      "status": "PASS",
+      "method": "最终WKWebView元数据与Rust回调安全测试",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log",
+        "evidence/native-final-state.json"
+      ],
+      "notes": "180000ms与9001045ms，640×360；有限数值、内容hash、播放lease校验，过期回调拒绝。"
+    },
+    {
+      "id": "D3-V39",
+      "scenario": "媒体范围隔离",
+      "expected": "URL 无法读取 SQLite、shell.json、staging、用户任意文件",
+      "status": "PASS",
+      "method": "最终WKWebView受限URL探针+真实Tauri FsScope测试",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/native-media-probe-final.json",
+        "evidence/rust.log"
+      ],
+      "notes": "正式媒体加载；DB/shell/staging/recovery/源/符号链接均不加载且scope拒绝。未观测HTTP状态码，不称HTTP403。"
+    },
+    {
+      "id": "D3-V40",
+      "scenario": "路径与 token 攻击",
+      "expected": "越界、绝对路径、符号链接、伪造/过期 token 在原生层拒绝",
+      "status": "PASS",
+      "method": "Rust越界/编码路径/链接/token过期伪造测试",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/rust.log"
+      ],
+      "notes": "路径不来自IPC，原生选择token与asset UUID校验；受控父目录与文件校验。"
+    },
+    {
+      "id": "D3-V41",
+      "scenario": "capabilities 与命令",
+      "expected": "只有必要暴露面，无通用 SQL/fs/shell 后门",
+      "status": "PASS",
+      "method": "AppManifest/capabilities/CSP与命令实现审查",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/workspace-audit.json",
+        "D3_DATA_CONTRACT.md"
+      ],
+      "notes": "无通用SQL/fs/shell/网络命令；测试探针必须进程环境+标记隔离根才能启用，普通个人库拒绝。"
+    },
+    {
+      "id": "D3-V42",
+      "scenario": "真实深层页冷启动",
+      "expected": "数据库就绪后恢复同一素材，默认暂停、不误判不存在",
+      "status": "PASS",
+      "method": "最终包关闭服务器后的深层页冷启动",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "screenshots/native-final-min-analysis-restored.jpg",
+        "screenshots/native-final-restored-ax.txt"
+      ],
+      "notes": "同一真实asset，先等库就绪，默认Play/00:00。"
+    },
+    {
+      "id": "D3-V43",
+      "scenario": "缺失/归档/不存在路由",
+      "expected": "有明确状态及返回路径，个人/演示不混淆",
+      "status": "PASS",
+      "method": "最终包缺失、归档、不存在三类冷启动",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "screenshots/native-final-missing-ax.txt",
+        "screenshots/native-final-archived-route-ax.txt",
+        "screenshots/native-final-not-found-route-ax.txt"
+      ],
+      "notes": "归档有标签、返回与暂停播放器；不存在提示无此素材并可返回真实库。故障夹具已恢复。"
+    },
+    {
+      "id": "D3-V44",
+      "scenario": "已保存后 Cmd+Q",
+      "expected": "正常退出；重新打开数据不丢，无虚假未保存提示",
+      "status": "PASS",
+      "method": "最终包正常Cmd+Q及多次重启",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "D3_NATIVE_VALIDATION.md",
+        "evidence/native-final-state.json"
+      ],
+      "notes": "正常退出码0；个人已保存资料保留，无未保存假提示。"
+    },
+    {
+      "id": "D3-V45",
+      "scenario": "导入中 Cmd+Q",
+      "expected": "继续/取消退出两条路径正确，安全收尾不报假成功",
+      "status": "PASS",
+      "method": "最终包导入中继续与取消退出两分支",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "screenshots/native-final-cancel-exit-ax.txt",
+        "evidence/native-after-cancel.json"
+      ],
+      "notes": "真实1.95GiB批次中操作；安全cancelled落库，成功项保留，无假成功。"
+    },
+    {
+      "id": "D3-V46",
+      "scenario": "Cmd+W / 重激活 / 重开",
+      "expected": "保留 D2 语义，不重复建库、迁移、导入或建立第二写队列",
+      "status": "PASS",
+      "method": "最终包Cmd+W隐藏、重复启动重激活",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "screenshots/native-final-reopen-ax.txt",
+        "evidence/rust.log",
+        "D3_NATIVE_VALIDATION.md"
+      ],
+      "notes": "主进程仍运行，第二次启动退出0，恢复同深层页；asset/attempt数量不重复。实际Dock点击未测。"
+    },
+    {
+      "id": "D3-V47",
+      "scenario": "原生最窄/宽窗口",
+      "expected": "1024×680 与一档常用宽窗口可用；实际尺寸有记录",
+      "status": "PASS",
+      "method": "最终原生八页最窄与宽窗口截图",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "D3_SCREENSHOT_INDEX.md"
+      ],
+      "notes": "逻辑尺寸1024×680、1512×867。浏览器四宽度不是原生四宽度验收。"
+    },
+    {
+      "id": "D3-V48",
+      "scenario": "中文输入法/焦点/Esc",
+      "expected": "候选组合不误提交，弹窗关闭焦点恢复；人工未测明确标注",
+      "status": "MANUAL_PENDING",
+      "method": "React组合事件与原生焦点/Esc部分验证",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/components.log",
+        "D3_NATIVE_VALIDATION.md"
+      ],
+      "notes": "真实中文输入法候选组合未人工实测；普通中文/emoji输入和isComposing事件不替代候选验收。"
+    },
+    {
+      "id": "D3-V49",
+      "scenario": "D2 八页回归",
+      "expected": "原演示流程、导航、快捷键、NOT_CONNECTED 与阶段说明不退化",
+      "status": "PASS",
+      "method": "既有10个浏览器流程及最终原生八页",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/components.log",
+        "evidence/browser.log",
+        "D3_SCREENSHOT_INDEX.md"
+      ],
+      "notes": "八页/导航/演示流程、阶段提示及NOT_CONNECTED保留；人工系统级快捷键覆盖范围另列。"
+    },
+    {
+      "id": "D3-V50",
+      "scenario": "无服务器独立包",
+      "expected": "关闭开发服务器后最终 `.app` 仍能导入、播放、保存、重启",
+      "status": "PASS",
+      "method": "最终包在Vite停止后独立导入/播放/保存资料读回/重启",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "D3_NATIVE_VALIDATION.md",
+        "evidence/desktop-build.log"
+      ],
+      "notes": "从deliverables/D3启动，运行不依赖localhost开发服务器。Finder/Dock人工启动方式未测。"
+    },
+    {
+      "id": "D3-V51",
+      "scenario": "离线与无外部请求",
+      "expected": "在可控环境做实际断网测试；静态检查/拦截不能冒充系统断网",
+      "status": "NOT_RUN",
+      "method": "静态CSP/依赖审查及浏览器请求检查",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/browser.log",
+        "D3_DATA_CONTRACT.md"
+      ],
+      "notes": "没有实际关闭系统网络，因此本项NOT_RUN；静态或拦截检查不当作系统断网。"
+    },
+    {
+      "id": "D3-V52",
+      "scenario": "包与清单一致",
+      "expected": "最后构建后的架构、签名状态、哈希、ZIP 对应当前产物",
+      "status": "PASS",
+      "method": "最终产物检查、codesign严格验证、ZIP逐文件SHA核对、包内私有数据排除",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "../../../deliverables/D3/BUILD_MANIFEST.json",
+        "evidence/package-audit.json"
+      ],
+      "notes": "最后代码修改后已desktop:build；ZIP和清单确认后更新。"
+    },
+    {
+      "id": "D3-V53",
+      "scenario": "包内隐私",
+      "expected": "无私人视频、SQLite、完整源路径日志；测试素材来源可追溯",
+      "status": "PASS",
+      "method": "最终产物检查、codesign严格验证、ZIP逐文件SHA核对、包内私有数据排除",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "../../../deliverables/D3/BUILD_MANIFEST.json",
+        "evidence/package-audit.json"
+      ],
+      "notes": "最终打包脚本将逐文件检查并排除SQLite/.part/私有输入；确认后更新。"
+    },
+    {
+      "id": "D3-V54",
+      "scenario": "工作区与阶段边界",
+      "expected": "D2 未提交成果、Git 状态、插件工程保留；D4+ 未开工",
+      "status": "PASS",
+      "method": "保护副本逐文件、Git与阶段范围审查",
+      "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
+      "evidence": [
+        "evidence/workspace-audit.json"
+      ],
+      "notes": "无提交/推送/重置/清空/远端修改；保护的输入文档与AGENTS保留；D4未实施。"
+    }
+  ],
+  "additionalNativeChecksPending": [
+    "原生同内容修复UI完整提交；Rust同ID/资料修复测试已通过",
+    "Finder双击、实际Dock点击、外接屏断开、其他机器/macOS版本",
+    "物理磁盘耗尽与实际断电/kill窗口；Rust构造状态覆盖已记录"
+  ],
+  "evidencePolicy": "测试数量不等于54项验收；浏览器证据不冒充最终WKWebView；视频截图灰色原样保留。",
+  "additionalExistingFormatCheck": {
+    "status": "FAIL",
+    "unchangedBaselineFile": "apps/desktop/src-tauri/src/main.rs",
+    "evidence": [
+      "evidence/rustfmt-existing-main.log",
+      "evidence/rustfmt-existing-main.json"
+    ],
+    "note": "额外全量Rustfmt发现既有main.rs一行格式差异；文件与保护副本字节一致，未改写。现有Prettier和本轮Rust变更范围检查通过。"
+  },
+  "artifact": {
+    "appBytes": 9357793,
+    "zipBytes": 3305513,
+    "executableSha256": "407b4b2ff9ca89eb93c79bba28bc504f5b1e133f2f329033acdd14e8ff97fc20",
+    "archiveSha256": "58bb996b46a3c779289a39cfc086e350489cdcb567cec55597febe9327f9d21b",
+    "appTreeSha256": "b683050ba3bda38ca3436c2537097ab9d0388f3aa7ed1a15e601304f61e6509b",
+    "architecture": "arm64",
+    "signature": {
+      "type": "adhoc",
+      "strictVerification": "passed",
+      "developerId": false,
+      "notarized": false,
+      "details": "Executable=/Users/shaoqitang/Documents/ChatGPT/FrameWeave/deliverables/D3/FrameWeave.app/Contents/MacOS/frameweave-workbench\nIdentifier=com.sharkytang.frameweave.workbench\nFormat=app bundle with Mach-O thin (arm64)\nCodeDirectory v=20500 size=18340 flags=0x10002(adhoc,runtime) hashes=566+3 location=embedded\nHash type=sha256 size=32\nCandidateCDHash sha256=3860e43b96ed3c22fdad3967282cc9b88899a223\nCandidateCDHashFull sha256=3860e43b96ed3c22fdad3967282cc9b88899a223c9788c8747898278f8e4b5f4\nHash choices=sha256\nCMSDigest=3860e43b96ed3c22fdad3967282cc9b88899a223c9788c8747898278f8e4b5f4\nCMSDigestType=2\nCDHash=3860e43b96ed3c22fdad3967282cc9b88899a223\nSignature=adhoc\nInfo.plist entries=15\nTeamIdentifier=not set\nRuntime Version=27.0.0\nSealed Resources version=2 rules=13 files=1\nInternal requirements count=0 size=12\n"
+    }
+  }
+}

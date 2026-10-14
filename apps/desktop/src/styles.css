@@ -2984,3 +2984,32 @@ h4 {
 .notes-heading .tabs button {
   font-size: 13px;
 }
+
+.import-items {
+  max-height: 330px;
+  overflow-y: auto;
+  margin-block: 16px;
+}
+.import-item {
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  overflow-wrap: anywhere;
+}
+.import-item progress {
+  width: 100%;
+  accent-color: #7867dd;
+}
+.personal-seek {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+.personal-seek input {
+  flex: 1;
+  min-width: 0;
+}

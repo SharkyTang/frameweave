@@ -1,0 +1,8 @@
+{
+  "command": "/usr/bin/time -l (final app, isolated root)",
+  "exitCode": 0,
+  "realSeconds": 104.7,
+  "maximumResidentSetBytes": 124846080,
+  "peakMemoryFootprintBytes": 36701480,
+  "scope": "native main process during 180s video playback and page navigation; this run did not import the 1.95GiB file; WebKit child processes are not included"
+}

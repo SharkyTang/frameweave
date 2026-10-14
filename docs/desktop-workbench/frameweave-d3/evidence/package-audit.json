@@ -1,0 +1,20 @@
+{
+  "recordedAtUtc": "2026-10-14T21:58:08.894899+00:00",
+  "identifier": "com.sharkytang.frameweave.workbench",
+  "appBytes": 9357793,
+  "zipBytes": 3305513,
+  "executableSha256": "407b4b2ff9ca89eb93c79bba28bc504f5b1e133f2f329033acdd14e8ff97fc20",
+  "archiveSha256": "58bb996b46a3c779289a39cfc086e350489cdcb567cec55597febe9327f9d21b",
+  "appTreeSha256": "b683050ba3bda38ca3436c2537097ab9d0388f3aa7ed1a15e601304f61e6509b",
+  "architecture": "arm64",
+  "signature": {
+    "type": "adhoc",
+    "strictVerification": "passed",
+    "developerId": false,
+    "notarized": false,
+    "details": "Executable=/Users/shaoqitang/Documents/ChatGPT/FrameWeave/deliverables/D3/FrameWeave.app/Contents/MacOS/frameweave-workbench\nIdentifier=com.sharkytang.frameweave.workbench\nFormat=app bundle with Mach-O thin (arm64)\nCodeDirectory v=20500 size=18340 flags=0x10002(adhoc,runtime) hashes=566+3 location=embedded\nHash type=sha256 size=32\nCandidateCDHash sha256=3860e43b96ed3c22fdad3967282cc9b88899a223\nCandidateCDHashFull sha256=3860e43b96ed3c22fdad3967282cc9b88899a223c9788c8747898278f8e4b5f4\nHash choices=sha256\nCMSDigest=3860e43b96ed3c22fdad3967282cc9b88899a223c9788c8747898278f8e4b5f4\nCMSDigestType=2\nCDHash=3860e43b96ed3c22fdad3967282cc9b88899a223\nSignature=adhoc\nInfo.plist entries=15\nTeamIdentifier=not set\nRuntime Version=27.0.0\nSealed Resources version=2 rules=13 files=1\nInternal requirements count=0 size=12\n"
+  },
+  "archiveContentsMatchApp": true,
+  "personalDataBundled": false,
+  "d2DeliveryComparedByteForByteWithProtectedCopy": true
+}

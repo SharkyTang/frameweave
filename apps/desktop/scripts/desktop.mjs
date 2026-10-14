@@ -18,7 +18,7 @@ if (existsSync(path.join(localCargo, "bin/cargo"))) {
 const [command, ...args] = process.argv.slice(2);
 const nativeArgs = {
   "native-test": ["test", "--locked"],
-  "native-lock": ["generate-lockfile"],
+  "native-lock": ["update", "--workspace"],
   "native-check": ["check", "--locked"],
 }[command];
 const executable = nativeArgs

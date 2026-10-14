@@ -1,0 +1,20 @@
+Window: "FrameWeave · 映构视频创作工作台", App: FrameWeave.
+0 standard window FrameWeave · 映构视频创作工作台, Secondary Actions: Raise
+	1 scroll area
+		2 HTML content Description: FrameWeave · 映构视频创作工作台, URL: tauri://localhost#/home
+			3 container 导入进行中，退出前确认
+				4 heading 导入进行中，退出前确认, Value: 2
+					5 text 导入进行中，退出前确认
+				6 button 关闭弹窗
+				7 text 可以继续导入，或取消未完成的导入并退出。正在完成入库的素材会先安全收尾，已经成功的素材保留。
+				8 button 继续导入
+				9 button 取消未完成导入并退出
+	10 close button
+	11 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	12 minimize button
+	13 text FrameWeave · 映构视频创作工作台
+14 menu bar
+	15 FrameWeave
+	16 文件
+	17 编辑
+	18 窗口

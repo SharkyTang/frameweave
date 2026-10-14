@@ -1,0 +1,67 @@
+Window: "FrameWeave · 映构视频创作工作台", App: FrameWeave.
+0 standard window FrameWeave · 映构视频创作工作台, Secondary Actions: Raise
+	1 scroll area
+		2 HTML content Description: FrameWeave · 映构视频创作工作台, URL: tauri://localhost#/radar
+			3 container 主导航
+				4 text FrameWeave
+				5 text 映构 · 创作者工作台
+				6 button Help: 切换个人空间 / 演示空间, 我
+我的工作空间 本地 · 个人
+				7 container
+					8 text 工作区
+					9 button 工作台
+					10 text 学习
+					11 button 灵感素材库
+					12 button 视频拆解
+					13 button 创作方法库
+					14 text 创作
+					15 button 创作导师
+					16 button 我的作品
+					17 text 发现
+					18 button 爆款雷达 规划中, Help: 爆款雷达
+					19 text 系统
+					20 button 设置
+				21 text AI / 下载插件尚未接入 本地素材 · D3
+				22 button 收起侧导航
+			23 container
+				24 text 我的创作空间 / 爆款雷达
+				25 button 搜索与命令 ⌘ K
+				26 text 个人空间 我
+			27 container
+				28 text FIND WHAT IS WORTH LEARNING
+				29 heading 爆款雷达, Value: 1
+					30 text 爆款雷达
+				31 text 未来从可用的数据源中，发现值得学习的视频。 规划中 下一次好灵感，值得等待
+				32 heading 发现的起点，是你想学什么。, Value: 2
+					33 text 发现的起点，是你想学什么。
+				34 text 这个版本没有榜单数据源，也不会抓取平台或追踪账号。你可以先试选兴趣方向，作为未来发现功能的界面预览。
+				35 button 查看雷达能力状态
+				36 heading 我想关注的领域, Value: 2
+					37 text 我想关注的领域
+				38 text 兴趣选择是偏好，不代表已关注任何账号或榜单。
+				39 toggle button 知识分享, Value: off
+				40 toggle button 生活记录, Value: off
+				41 toggle button 手工制作, Value: off
+				42 toggle button 产品表达, Value: off
+				43 toggle button 摄影, Value: off
+				44 toggle button 旅行, Value: off
+				45 toggle button 美食, Value: off
+				46 toggle button 学习成长, Value: off
+				47 text 想排除的主题
+				48 text entry area (settable) 想排除的主题, Value: [text entry area], Placeholder: 例如：纯搬运、与当前创作方向无关的内容
+					49 text 例如：纯搬运、与当前创作方向无关的内容
+				50 text D2 偏好预览仅在当前会话有效。真实保存将在 D6 接入。
+				51 heading 发现之后，更值得问的事, Value: 2
+					52 text 发现之后，更值得问的事
+				53 text 01 它的开头，为什么让我停下来？ 02 什么结构或镜头方法可以借鉴？ 03 怎样用自己的主题，做出不同表达？ 发现功能接入后，仍然以学习与原创创作为目标。
+			54 container
+				55 text 本机桌面窗口  · 个人素材 / 已入库资料 V 0.1.0 | D3
+	56 close button
+	57 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	58 minimize button
+	59 text FrameWeave · 映构视频创作工作台
+60 menu bar
+	61 FrameWeave
+	62 文件
+	63 编辑
+	64 窗口

@@ -1,0 +1,16 @@
+{
+  "command": [
+    "./node_modules/.bin/prettier",
+    "--check",
+    "src",
+    "tests",
+    "scripts/desktop.mjs",
+    "src-tauri/tauri.conf.json",
+    "src-tauri/capabilities/main.json"
+  ],
+  "workingDirectory": "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop",
+  "startedAtUtc": "2026-10-14T21:18:14.939256+00:00",
+  "finishedAtUtc": "2026-10-14T21:18:15.325069+00:00",
+  "exitCode": 0,
+  "log": "prettier.log"
+}

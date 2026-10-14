@@ -1,0 +1,13 @@
+{
+  "command": [
+    "npm",
+    "run",
+    "native:test"
+  ],
+  "workingDirectory": "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop",
+  "startedAtUtc": "2026-10-14T21:18:55.538233+00:00",
+  "finishedAtUtc": "2026-10-14T21:19:00.974157+00:00",
+  "exitCode": 0,
+  "log": "rust.log",
+  "testsPassed": 27
+}

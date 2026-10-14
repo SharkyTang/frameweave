@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-record-isolated-probe"
+description = "Enables the record_isolated_probe command without any pre-configured scope."
+commands.allow = ["record_isolated_probe"]
+
+[[permission]]
+identifier = "deny-record-isolated-probe"
+description = "Denies the record_isolated_probe command without any pre-configured scope."
+commands.deny = ["record_isolated_probe"]

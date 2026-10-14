@@ -32,7 +32,7 @@ test("首次个人空间与八个空态页面；未接入说明准确", async ({
   }
   await route(page, "/home");
   await page.getByRole("button", { name: "导入参考素材", exact: true }).click();
-  await expect(page.getByRole("dialog")).toContainText("下一阶段 D3");
+  await expect(page.getByRole("dialog")).toContainText("原文件不会移动或删除");
   await expect(page.getByRole("dialog")).not.toContainText("导入成功");
 });
 for (const width of [1024, 1280, 1440, 1728])
@@ -71,7 +71,7 @@ for (const width of [1024, 1280, 1440, 1728])
       );
       if (width === 1440)
         await page.screenshot({
-          path: `../../docs/desktop-workbench/screenshots/browser-${path.split("/")[1]}.png`,
+          path: `../../docs/desktop-workbench/frameweave-d3/screenshots/browser-${path.split("/")[1]}.png`,
         });
     }
     expect(errors).toEqual([]);

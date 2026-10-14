@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-record-media-metadata"
+description = "Enables the record_media_metadata command without any pre-configured scope."
+commands.allow = ["record_media_metadata"]
+
+[[permission]]
+identifier = "deny-record-media-metadata"
+description = "Denies the record_media_metadata command without any pre-configured scope."
+commands.deny = ["record_media_metadata"]

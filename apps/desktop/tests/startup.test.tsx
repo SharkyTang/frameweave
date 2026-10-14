@@ -5,7 +5,8 @@ import App from "../src/App";
 import type { ShellInfo } from "../src/domain";
 
 const infoMock = vi.hoisted(() => vi.fn());
-vi.mock("../src/adapters/desktop", () => ({
+vi.mock("../src/adapters/desktop", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("../src/adapters/desktop")>()),
   shell: {
     info: infoMock,
     rememberRoute: vi.fn(async () => {}),

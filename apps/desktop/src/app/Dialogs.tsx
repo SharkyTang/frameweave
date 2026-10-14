@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowRight, FilePlus, Search } from "lucide-react";
+import { ImportDialog } from "./ImportDialog";
 import { useWorkbench } from "./context";
 import { shell } from "../adapters/desktop";
 import { workspaceSearch } from "../services";
@@ -8,6 +9,7 @@ import { Badge, Button, Field, Modal } from "../components/ui";
 export function Dialogs() {
   const c = useWorkbench();
   const [title, setTitle] = useState("");
+  const [quitting, setQuitting] = useState(false);
   const [query, setQuery] = useState("");
   const dialog = c.dialog;
   if (!dialog) return null;
@@ -63,22 +65,72 @@ export function Dialogs() {
         </form>
       </Modal>
     );
-  if (dialog.type === "quit")
+  if (dialog.type === "import") return <ImportDialog />;
+  if (dialog.type === "leave")
     return (
-      <Modal title="退出前，确认演示变更" onClose={() => c.setDialog(null)}>
+      <Modal title="素材资料尚未保存" onClose={() => c.setDialog(null)}>
         <p className="dialog-paragraph">
-          你编辑过示例内容。当前 D2
-          尚未接入磁盘保存，退出后将恢复初始示例；个人资料没有变化。
+          输入还在当前表单中。继续编辑可保存；离开会放弃未提交的资料。
         </p>
         <div className="modal-actions">
           <Button onClick={() => c.setDialog(null)}>继续编辑</Button>
           <Button
             tone="danger"
-            onClick={() =>
-              void shell.quit().catch(() => c.notify("退出请求失败，请重试。"))
-            }
+            onClick={() => {
+              c.setEditing(false, false);
+              c.setDialog(null);
+              dialog.proceed();
+            }}
           >
-            放弃示例变更并退出
+            放弃未保存资料并离开
+          </Button>
+        </div>
+      </Modal>
+    );
+  if (dialog.type === "quit")
+    return (
+      <Modal
+        title={c.batch?.active ? "导入进行中，退出前确认" : "退出前确认"}
+        onClose={() => {
+          if (!quitting) c.setDialog(null);
+        }}
+      >
+        <p className="dialog-paragraph">
+          {c.batch?.active
+            ? "可以继续导入，或取消未完成的导入并退出。正在完成入库的素材会先安全收尾，已经成功的素材保留。"
+            : "已经保存的个人素材会保留。"}{" "}
+          {c.draftDirty
+            ? "当前素材表单有未保存输入，确认退出将放弃这部分输入。"
+            : ""}{" "}
+          {c.dirty && !c.draftDirty
+            ? "示例有变更，退出后恢复初始示例；个人资料不受影响。"
+            : ""}
+        </p>
+        {c.saving && (
+          <p role="status">正在保存资料，请等待本机确认后再退出。</p>
+        )}
+        <div className="modal-actions">
+          <Button disabled={quitting} onClick={() => c.setDialog(null)}>
+            {c.batch?.active ? "继续导入" : "继续编辑"}
+          </Button>
+          <Button
+            tone="danger"
+            disabled={quitting || c.saving}
+            onClick={() => {
+              setQuitting(true);
+              void shell.quit().catch(() => {
+                setQuitting(false);
+                c.notify("退出安全收尾失败，请重试。");
+              });
+            }}
+          >
+            {quitting
+              ? "正在安全收尾…"
+              : c.batch?.active
+                ? "取消未完成导入并退出"
+                : c.draftDirty
+                  ? "放弃未保存资料并退出"
+                  : "放弃示例变更并退出"}
           </Button>
         </div>
       </Modal>

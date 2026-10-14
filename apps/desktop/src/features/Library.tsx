@@ -22,7 +22,8 @@ import {
   PageTitle,
   Tabs,
 } from "../components/ui";
-import { filterAssets } from "../domain";
+import { AssetEditor } from "../components/AssetEditor";
+import { assetPatch, nativeErrorMessage, filterAssets } from "../domain";
 
 export function Library() {
   const c = useWorkbench();
@@ -44,8 +45,8 @@ export function Library() {
           icon={Link}
           onClick={() =>
             c.unavailable(
-              "参考链接保存 · D3",
-              "当前阶段提供页面和示例。D3 将允许手动填写标题、备注与链接，不请求远程内容。",
+              "参考链接保存尚未开放",
+              "本轮支持本地视频管理；链接记录仍仅有演示示例，不下载或请求远程内容。",
             )
           }
         >
@@ -67,7 +68,10 @@ export function Library() {
           items={[
             { id: "all", label: "全部素材" },
             { id: "favorite", label: "我的收藏" },
-            { id: "local", label: "可播放" },
+            {
+              id: "local",
+              label: c.space === "personal" ? "已加载视频" : "可播放",
+            },
             { id: "link", label: "参考链接" },
           ]}
         />
@@ -127,34 +131,30 @@ export function Library() {
               }
               list={layout === "list"}
               onOpen={() => setSelected(a.id)}
-              onFavorite={() =>
-                c.mutate((w) => ({
-                  ...w,
-                  assets: w.assets.map((item) =>
-                    item.id === a.id
-                      ? { ...item, favorite: !item.favorite }
-                      : item,
-                  ),
-                }))
-              }
+              onFavorite={() => c.toggleFavorite(a)}
             />
           ))}
         </div>
       ) : (
         <EmptyState
           title={
-            c.space === "personal"
+            c.space === "personal" && !query && filter === "all" && !archived
               ? "这里将是你的灵感资料库"
               : "没有找到匹配的素材"
           }
           description={
             c.space === "personal"
-              ? "下一阶段支持本地视频导入。现在可以进入演示空间，体验搜索、收藏和素材学习。"
+              ? "用原生选择器复制本地视频到资料库，或调整搜索与筛选条件。"
               : "试试其他关键词或筛选条件。归档不会删除任何外部文件。"
           }
         >
           {c.space === "personal" ? (
-            <DemoEntry />
+            <>
+              <Button tone="primary" onClick={() => c.nativeAction("import")}>
+                导入本地视频
+              </Button>
+              <DemoEntry />
+            </>
           ) : (
             <Button
               onClick={() => {
@@ -171,10 +171,64 @@ export function Library() {
       <div className="page-note">
         {c.space === "demo"
           ? "示例搜索、收藏和归档只影响本次演示会话。"
-          : "素材文件与元数据的真实导入、管理将在 D3 接入。"}{" "}
+          : "个人素材资料已保存在本机。归档保留管理副本；已入库不等于所有编码可播放。"}{" "}
         下载插件尚未接入。
       </div>
-      {asset && (
+      {asset && c.space === "personal" && (
+        <Modal
+          title="参考素材详情"
+          drawer
+          onClose={() => c.guard(() => setSelected(undefined))}
+        >
+          <div className="detail-head">
+            <h3>{asset.title}</h3>
+            <p className="subtle">
+              {asset.originalFilename} · {asset.byteSize?.toLocaleString()} 字节{" "}
+              {asset.archived ? "· 已归档" : ""}
+            </p>
+          </div>
+          <AssetEditor asset={asset} key={asset.id} />
+          <p className="subtle">
+            {asset.status === "missing"
+              ? "管理副本缺失：重新选择同内容视频可修复，标题与标签保留。"
+              : "管理副本已入库；打开视频核验播放。"}
+          </p>
+          <div className="stack-actions">
+            <Button
+              tone="primary"
+              onClick={() => c.navigate(`/analysis/${asset.id}`)}
+            >
+              进入学习空间
+            </Button>
+            <Button
+              onClick={() =>
+                c.guard(() => {
+                  void c
+                    .saveAsset({
+                      ...assetPatch(asset),
+                      archived: !asset.archived,
+                    })
+                    .then(() => {
+                      setSelected(undefined);
+                      c.notify(
+                        asset.archived ? "素材已恢复" : "素材已归档，副本保留",
+                      );
+                    })
+                    .catch((e) => c.notify(nativeErrorMessage(e)));
+                })
+              }
+            >
+              {asset.archived ? "恢复素材" : "归档素材"}
+            </Button>
+            {asset.status === "missing" && (
+              <Button onClick={() => c.nativeAction("import")}>
+                重新导入同内容修复
+              </Button>
+            )}
+          </div>
+        </Modal>
+      )}
+      {asset && c.space === "demo" && (
         <Modal
           title="参考素材详情"
           drawer

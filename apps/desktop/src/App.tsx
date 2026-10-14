@@ -60,7 +60,7 @@ function Content() {
           <div className="loading-state" role="status">
             <div className="loading-mark" />
             <h2>正在打开本地工作台</h2>
-            <p>读取桌面信息与内置示例…</p>
+            <p>读取本机资料库与桌面信息…</p>
           </div>
         ) : c.error ? (
           <Card className="startup-error">

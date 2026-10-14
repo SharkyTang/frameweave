@@ -14,7 +14,7 @@ import {
   X,
   type LucideIcon,
 } from "lucide-react";
-import type { VideoAsset } from "../domain";
+import { timeLabel, type VideoAsset } from "../domain";
 
 export function Button({
   children,
@@ -228,6 +228,8 @@ export function Modal({
     )?.focus();
     const handler = (event: KeyboardEvent) => {
       if (event.isComposing) return;
+      const modals = document.querySelectorAll("[role=dialog]");
+      if (modals[modals.length - 1] !== ref.current) return;
       if (event.key === "Escape") {
         event.preventDefault();
         event.stopPropagation();
@@ -297,7 +299,9 @@ export function Poster({
           ? "FROM AN IDEA"
           : kind === "link"
             ? "NEXT INSPIRATION"
-            : "KEEP THE NOTES"}
+            : kind === "local"
+              ? "LOCAL REFERENCE"
+              : "KEEP THE NOTES"}
       </span>
       {kind === "shapes" ? (
         <div className="shape-composition">
@@ -319,7 +323,9 @@ export function Poster({
           ? "一个问题，三个画面"
           : kind === "link"
             ? "下一次灵感，从这里开始"
-            : "媒体缺失 · 笔记保留"}
+            : kind === "local"
+              ? "个人视频 · 管理副本"
+              : "媒体缺失 · 笔记保留"}
       </span>
     </div>
   );
@@ -337,12 +343,24 @@ export function AssetCard({
   onFavorite: () => void;
   list?: boolean;
 }) {
-  const status = {
-    available: "自制演示 · 00:12",
-    link_only: "未关联本地视频",
-    missing: "示例：文件缺失",
-    unsupported: "格式不支持",
-  }[asset.status];
+  const status =
+    asset.source === "manual_import"
+      ? asset.status === "missing"
+        ? "管理副本缺失"
+        : asset.status === "unsupported"
+          ? "副本不可访问"
+          : asset.playbackStatus === "metadata_loaded"
+            ? "已加载 · " +
+              (asset.durationMs ? timeLabel(asset.durationMs) : "时长未知")
+            : asset.playbackStatus === "load_failed"
+              ? "已入库 · 播放失败"
+              : "已入库 · 播放待验证"
+      : {
+          available: "自制演示 · 00:12",
+          link_only: "未关联本地视频",
+          missing: "示例：文件缺失",
+          unsupported: "格式不支持",
+        }[asset.status];
   return (
     <article className={`asset-card ${list ? "list-card" : ""}`}>
       <button

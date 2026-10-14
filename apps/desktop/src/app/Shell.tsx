@@ -99,7 +99,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
             <span>AI / 下载插件尚未接入</span>
           </div>
           <div className="sidebar-foot">
-            <span>桌面预览 · D2</span>
+            <span>本地素材 · D3</span>
             <IconButton
               icon={collapsed ? PanelLeftOpen : PanelLeftClose}
               label={collapsed ? "展开侧导航" : "收起侧导航"}
@@ -153,12 +153,20 @@ export function Shell({ children }: { children: React.ReactNode }) {
             {c.info?.native ? "本机桌面窗口" : "组件预览"} ·{" "}
             {c.space === "demo"
               ? "演示数据 / 会话内编辑"
-              : "个人数据将在 D3 接入"}
+              : c.libraryInfo?.ready
+                ? "个人素材 / 已入库资料"
+                : "浏览器预览 / 原生资料不可用"}
           </span>
           <span>
             V{c.info?.version ?? "0.1.0"}{" "}
             <span className="statusbar-separator">|</span>{" "}
-            {c.space === "demo" && c.dirty ? "示例有变更 · 未落盘" : "D0 → D2"}
+            {c.space === "demo" && c.dirty
+              ? "示例有变更 · 未落盘"
+              : c.draftDirty
+                ? "资料待保存"
+                : c.batch?.active
+                  ? "正在导入"
+                  : "D3"}
           </span>
         </footer>
       </div>

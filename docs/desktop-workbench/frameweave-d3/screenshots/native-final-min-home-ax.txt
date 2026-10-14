@@ -1,0 +1,78 @@
+Window: "FrameWeave · 映构视频创作工作台", App: FrameWeave.
+0 standard window FrameWeave · 映构视频创作工作台, Secondary Actions: Raise
+	1 scroll area
+		2 HTML content Description: FrameWeave · 映构视频创作工作台, URL: tauri://localhost#/home
+			3 container 主导航
+				4 text FrameWeave
+				5 text 映构 · 创作者工作台
+				6 button Help: 切换个人空间 / 演示空间, 我
+我的工作空间 本地 · 个人
+				7 container
+					8 text 工作区
+					9 button 工作台
+					10 text 学习
+					11 button 灵感素材库
+					12 button 视频拆解
+					13 button 创作方法库
+					14 text 创作
+					15 button 创作导师
+					16 button 我的作品
+					17 text 发现
+					18 button 爆款雷达 规划中, Help: 爆款雷达
+					19 text 系统
+					20 button 设置
+				21 text AI / 下载插件尚未接入 本地素材 · D3
+				22 button 收起侧导航
+			23 container
+				24 text 我的创作空间 / 工作台
+				25 button 搜索与命令 ⌘ K
+				26 text 个人空间 我
+			27 container
+				28 text YOUR CREATIVE DESK
+				29 heading 你好，开始你的下一次创作。, Value: 1
+					30 text 你好，开始你的下一次创作。
+				31 text 从值得学习的参考，到属于自己的表达。一次只推进一小步。
+				32 button 导入参考素材
+				33 button 新建创作项目
+				34 text 从一个灵感开始
+				35 heading 你的创作空间，准备好了。, Value: 2
+					36 text 你的创作空间，准备好了。
+				37 text 导入本地视频，整理资料，再带着一个问题观看。
+				38 button 导入本地视频
+				39 text 原视频保留 · 资料留在本机
+				40 heading 最近参考素材, Value: 2
+					41 text 最近参考素材
+				42 text 把每一次观看，变成一次有目的的学习。
+				43 button 全部素材
+				44 button 打开素材：D3 原生验证 😀 <b>按纯文本</b>
+				45 button D3 原生验证 😀 <b>按纯文本</b>
+				46 toggle button 取消收藏：D3 原生验证 😀 <b>按纯文本</b>, Value: on
+				47 container
+					48 text 手动导入 · 0  条笔记
+				49 text 原生 音轨 复核 1 本地 参考素材 — 本地 创作中项目 — 本地 已记录方法
+				50 heading 今天，推进一小步, Value: 3
+					51 text 今天，推进一小步
+				52 text 可以先走一遍示例流程
+				53 text 观察 → 记录 → 原创表达
+				54 button 开始体验
+				55 heading 我的待办, Value: 2
+					56 text 我的待办
+				57 text 0
+				58 text 这里会显示项目中的未完成事项。
+				59 heading 学习方法，保留自己的声音。, Value: 3
+					60 text 学习方法，保留自己的声音。
+				61 text 参考是起点。用自己的主题、镜头和表达，完成原创作品。
+				62 text 参考 学习 创作
+				63 button 保存参考链接
+				64 button 探索示例空间
+			65 container
+				66 text 本机桌面窗口  · 个人素材 / 已入库资料 V 0.1.0 | D3
+	67 close button
+	68 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	69 minimize button
+	70 text FrameWeave · 映构视频创作工作台
+71 menu bar
+	72 FrameWeave
+	73 文件
+	74 编辑
+	75 窗口

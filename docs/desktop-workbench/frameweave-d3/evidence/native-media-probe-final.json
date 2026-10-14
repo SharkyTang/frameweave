@@ -1,0 +1,58 @@
+[
+  {
+    "name": "media",
+    "loaded": true,
+    "errorCode": null,
+    "durationMs": 180000.0,
+    "width": 640,
+    "height": 360
+  },
+  {
+    "name": "database",
+    "loaded": false,
+    "errorCode": 4,
+    "durationMs": null,
+    "width": null,
+    "height": null
+  },
+  {
+    "name": "shell",
+    "loaded": false,
+    "errorCode": 4,
+    "durationMs": null,
+    "width": null,
+    "height": null
+  },
+  {
+    "name": "staging",
+    "loaded": false,
+    "errorCode": 4,
+    "durationMs": null,
+    "width": null,
+    "height": null
+  },
+  {
+    "name": "recovery",
+    "loaded": false,
+    "errorCode": 4,
+    "durationMs": null,
+    "width": null,
+    "height": null
+  },
+  {
+    "name": "source",
+    "loaded": false,
+    "errorCode": 4,
+    "durationMs": null,
+    "width": null,
+    "height": null
+  },
+  {
+    "name": "symlink",
+    "loaded": false,
+    "errorCode": 4,
+    "durationMs": null,
+    "width": null,
+    "height": null
+  }
+]

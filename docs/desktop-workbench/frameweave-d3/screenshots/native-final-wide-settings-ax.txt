@@ -1,0 +1,90 @@
+Window: "FrameWeave · 映构视频创作工作台", App: FrameWeave.
+0 standard window FrameWeave · 映构视频创作工作台, Secondary Actions: Raise
+	1 scroll area
+		2 HTML content Description: FrameWeave · 映构视频创作工作台, URL: tauri://localhost#/settings
+			3 container 主导航
+				4 text FrameWeave
+				5 text 映构 · 创作者工作台
+				6 button Help: 切换个人空间 / 演示空间, 我
+我的工作空间 本地 · 个人
+				7 container
+					8 text 工作区
+					9 button 工作台
+					10 text 学习
+					11 button 灵感素材库
+					12 button 视频拆解
+					13 button 创作方法库
+					14 text 创作
+					15 button 创作导师
+					16 button 我的作品
+					17 text 发现
+					18 button 爆款雷达 规划中, Help: 爆款雷达
+					19 text 系统
+					20 button 设置
+				21 text AI / 下载插件尚未接入 本地素材 · D3
+				22 button 收起侧导航
+			23 container
+				24 text 我的创作空间 / 设置
+				25 button 搜索与命令 ⌘ K
+				26 text 个人空间 我
+			27 container
+				28 text A QUIET, LOCAL WORKSPACE
+				29 heading 设置, Value: 1
+					30 text 设置
+				31 text 让工作台适合你，也让每种能力的状态清楚可见。
+				32 heading 外观, Value: 2
+					33 text 外观
+				34 text 系统字体、完整浅色主题。 浅色外观 柔和紫蓝与清楚的内容层级 已启用 界面密度（本次会话）
+				35 pop up button 界面密度（本次会话）, Value: 标准
+				36 heading 本地资料, Value: 2
+					37 text 本地资料
+				38 text 窗口与路由仍保存在 shell.json；素材资料和副本保存在独立目录。 /private/tmp/frameweave-d3-native-validation 个人 SQLite 与媒体资料库 已就绪 · schema 1 · 原生复制导入 本机可用 data/frameweave.sqlite3 · media/originals · staging（不向播放器开放）
+				39 button 备份说明
+				40 button 恢复说明
+				41 heading 演示空间, Value: 2
+					42 text 演示空间
+				43 text 示例与个人空间使用独立数据源，演示编辑不落盘。 当前位于个人空间 自制短片、手写拆解、创作编辑和方法卡
+				44 button 进入演示
+				45 button 恢复初始示例
+				46 text 只替换示例数据，不删除任何个人资料或外部文件。
+				47 heading 脱敏诊断信息, Value: 2
+					48 text 脱敏诊断信息
+				49 text 不含脚本、字幕、完整用户路径或密钥。
+				50 text entry area 脱敏诊断信息, Value: [text entry area: 脱敏诊断信息]
+					51 container
+						52 text FrameWeave · 映构 0.1.0 阶段: D3 环境: Tauri 桌面 平台: macos / aarch64 资料目录: <应用资料目录> 业务数据库: SQLite schema 1 / delete AI / 下载插件: 未接入 本次空间: 个人 包含个人脚本或媒体: 否
+				53 button 选中诊断信息 · ⌘C 复制
+				54 heading FrameWeave · 映构, Value: 2
+					55 text FrameWeave · 映构
+				56 text 视频创作者的本地工作台
+				57 text V 0.1.0  · D3 本地素材 运行环境
+				58 text Tauri / WKWebView
+				59 text 原生层
+				60 text 已实际响应
+				61 text 图标
+				62 text 临时应用图标
+				63 heading 连接状态, Value: 2
+					64 text 连接状态
+				65 text 视频 / 文案下载插件
+				66 text 独立开发，本版不接入
+				67 text AI 拆解与创作
+				68 text 未配置，无需 API Key
+				69 text 爆款雷达
+				70 text 规划中，无榜单采集
+				71 heading 资料留在本机, Value: 4
+					72 text 资料留在本机
+				73 text 生产应用内置界面和示例资源，不加载远程字体、图片或脚本。没有账号、云同步或遥测。
+				74 heading D3 的边界, Value: 4
+					75 text D3 的边界
+				76 text 原生选择并复制 MP4/MOV 候选，一次20个、单文件5 GiB。已入库与可播放分别核验；字幕/笔记、创作、导出与备份按后续阶段开放。
+			77 container
+				78 text 本机桌面窗口  · 个人素材 / 已入库资料 V 0.1.0 | D3
+	79 close button
+	80 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	81 minimize button
+	82 text FrameWeave · 映构视频创作工作台
+83 menu bar
+	84 FrameWeave
+	85 文件
+	86 编辑
+	87 窗口

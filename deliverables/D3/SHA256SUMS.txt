@@ -1,0 +1,2 @@
+58bb996b46a3c779289a39cfc086e350489cdcb567cec55597febe9327f9d21b  FrameWeave-D3-mac-arm64.zip
+407b4b2ff9ca89eb93c79bba28bc504f5b1e133f2f329033acdd14e8ff97fc20  FrameWeave.app/Contents/MacOS/frameweave-workbench

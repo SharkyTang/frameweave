@@ -1,0 +1,12 @@
+{
+  "command": [
+    "npm",
+    "run",
+    "desktop:build"
+  ],
+  "workingDirectory": "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/apps/desktop",
+  "startedAtUtc": "2026-10-14T21:19:13.042348+00:00",
+  "finishedAtUtc": "2026-10-14T21:19:28.745440+00:00",
+  "exitCode": 0,
+  "log": "desktop-build.log"
+}

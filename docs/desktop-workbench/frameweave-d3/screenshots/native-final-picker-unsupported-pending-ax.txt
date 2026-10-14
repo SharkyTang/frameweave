@@ -1,0 +1,98 @@
+Window: "Open", App: FrameWeave.
+0 sheet Description: open, ID: open-panel, Secondary Actions: Raise
+	1 split group
+		2 scroll area Secondary Actions: Scroll Up, Scroll Down
+			3 outline sidebar
+				4 row (selectable) Description: clock, Value: Recents
+				5 row (selectable) Description: Shared Folder, Value: Shared
+				6 row (selectable, expanded) Value: Favorites, Secondary Actions: Collapse
+				7 row (selectable) Applications
+				8 row (selectable) Desktop
+				9 row (selectable) Description: Arrow Down Circle, Value: Downloads
+				10 row (selectable) Description: document, Value: Documents
+				11 row (selectable, expanded) Value: Locations, Secondary Actions: Collapse
+				12 row (selectable) Description: iCloud, Value: iCloud云盘
+				13 row (selectable) OneDrive
+				14 row (selectable) Description: home, Value: shaoqitang
+				15 row (selectable) Macintosh HD
+				16 row (selectable, expanded) Value: Tags, Secondary Actions: Collapse
+				17 row (selectable) 红色
+				18 row (selectable) 橙色
+				19 row (selectable) 黄色
+				20 row (selectable) 绿色
+				21 row (selectable) 蓝色
+				22 row (selectable) 紫色
+				23 row (selectable) 灰色
+				24 row (selectable) All Tags…
+				25 row (selectable, expanded) Value: Media, Secondary Actions: Collapse
+				26 row (selectable) Description: photo, Value: Photos
+				27 row (selectable) Description: movie, Value: Movies
+			28 scroll bar (settable, float) 0
+				29 value indicator (settable, float) 0
+				30 increment arrow button
+				31 decrement arrow button
+				32 increment page button
+				33 decrement page button
+		34 splitter (disabled, settable, float) 158
+		35 scroll area
+			36 outline Description: list view, ID: ListView
+				37 row (selectable) Description: go down, Value: Name
+Size
+Kind
+Date Added
+				38 row (selectable)
+					39 cell
+						40 image
+						41 text field (settable) Value: 长片_150分钟_约2GiB.mp4, Secondary Actions: Open Finder item, URL: file:///private/tmp/frameweave-d3-native-validation/input/%E9%95%BF%E7%89%87_150%E5%88%86%E9%92%9F_%E7%BA%A62GiB.mp4
+					42 cell
+						43 text 2.1 GB
+					44 cell
+						45 text MPEG-4 movie
+					46 cell
+						47 text 今天 22:35
+				48 row (selected)
+					49 cell (selected)
+						50 image
+						51 text field (selected, settable) URL: file:///private/tmp/frameweave-d3-native-validation/input/%E4%B8%8D%E5%8F%AF%E8%A7%A3%E7%A0%81.mp4, Value: 不可解码.mp4, Secondary Actions: Open Finder item
+					52 cell (selected)
+						53 text 37 bytes
+					54 cell (selected)
+						55 text MPEG-4 movie
+					56 cell (selected)
+						57 text 今天 22:22
+				58 row (selectable)
+					59 cell
+						60 image
+						61 text field (settable) Value: 取消退出验证.mp4, Secondary Actions: Open Finder item, URL: file:///private/tmp/frameweave-d3-native-validation/input/%E5%8F%96%E6%B6%88%E9%80%80%E5%87%BA%E9%AA%8C%E8%AF%81.mp4
+					62 cell
+						63 text 1.07 GB
+					64 cell
+						65 text MPEG-4 movie
+					66 cell
+						67 text 今天 22:22
+				68 container
+					69 sort button Name
+					70 sort button Size
+					71 sort button Kind
+					72 sort button Date Added
+		73 container
+			74 button (disabled) back
+			75 button (disabled) forward
+		76 menu button Description: List, Help: Show as Icons, List, or Columns, and hide/show the sidebar, ID: View Options
+		77 menu button Help: Change the item grouping (hold down Option to change the sort), ID: Group or Sort By
+		78 pop up button Where:, Value: input, ID: where popup
+		79 search text field Search
+			80 button search
+		81 text 复制视频到映构资料库 · 原文件保留
+		82 button Cancel, ID: CancelButton
+		83 button Open, ID: OKButton
+84 menu bar
+	85 FrameWeave
+	86 文件
+	87 编辑
+	88 窗口
+
+Selected:
+	48 row (selected)
+
+Note: Pay special attention to the content selected by the user. If the user asks a question or refers to the content they are looking at on-screen, they might be referring to the selected content (but they might be referring to something else that's visible, too).

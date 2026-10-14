@@ -1,0 +1,7 @@
+{
+  "exitCode": 0,
+  "realSeconds": 77.35,
+  "maximumResidentSetBytes": 130383872,
+  "peakMemoryFootprintBytes": 35701984,
+  "scope": "final native main process: actual 1.95GiB managed-video metadata/playback/seek; no import ran in this measurement; WebKit children excluded"
+}

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -24,7 +24,14 @@ import {
   SectionTitle,
   Tabs,
 } from "../components/ui";
-import { timeLabel, type LearningNote } from "../domain";
+import { AssetEditor } from "../components/AssetEditor";
+import { personalMedia } from "../adapters/desktop";
+import {
+  nativeErrorMessage,
+  type PlaybackSource,
+  timeLabel,
+  type LearningNote,
+} from "../domain";
 
 export function Analysis() {
   const c = useWorkbench();
@@ -32,15 +39,59 @@ export function Analysis() {
   const [tab, setTab] = useState("notes");
   const [currentMs, setCurrentMs] = useState(0);
   const [playError, setPlayError] = useState(false);
+  const [source, setSource] = useState<PlaybackSource>();
+  const [sourceError, setSourceError] = useState("");
+  const [duration, setDuration] = useState<number>();
+  const [dimensions, setDimensions] = useState("");
   const [note, setNote] = useState<LearningNote>();
   const [noteOpen, setNoteOpen] = useState(false);
   const [text, setText] = useState("");
   const [dimension, setDimension] = useState("开头");
   const videoRef = useRef<HTMLVideoElement>(null);
+  const activeVideo = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    let disposed = false;
+    let playback: PlaybackSource | undefined;
+    if (c.space === "personal" && asset) {
+      void personalMedia
+        .playback(asset.id)
+        .then((s) => {
+          playback = s;
+          if (disposed) {
+            void personalMedia.releasePlayback(s.playbackToken);
+            return;
+          }
+          setSource(s);
+        })
+        .catch((e) => {
+          if (!disposed) setSourceError(nativeErrorMessage(e));
+        });
+    }
+    return () => {
+      disposed = true;
+      const video = activeVideo.current;
+      if (video) {
+        video.pause();
+        video.removeAttribute("src");
+        video.load();
+      }
+      if (playback)
+        void personalMedia
+          .releasePlayback(playback.playbackToken)
+          .catch(() => {});
+    };
+  }, [asset?.id, c.space]);
   const notes = c.workspace.notes
     .filter((n) => n.assetId === asset?.id)
     .sort((a, b) => a.timeMs - b.timeMs);
   const openNote = (existing?: LearningNote) => {
+    if (c.space === "personal") {
+      c.unavailable(
+        "时间点笔记 · D4",
+        "本轮可以播放与整理素材资料；个人时间点笔记尚未接入保存。",
+      );
+      return;
+    }
     setNote(existing);
     setText(existing?.text ?? "");
     setDimension(existing?.dimension ?? "开头");
@@ -68,7 +119,9 @@ export function Analysis() {
           }
           description={
             c.space === "personal"
-              ? "真实视频与时间点笔记将在 D3 / D4 接入。可先体验自制短片与手动编写的拆解。"
+              ? c.route.id
+                ? "当前个人资料库没有这条素材，请返回素材库选择。"
+                : "从个人素材库选择已入库视频；字幕与时间点笔记将在 D4 开放。"
               : "从素材库选择参考，或直接打开工作台自制短片。"
           }
         >
@@ -97,7 +150,11 @@ export function Analysis() {
         >
           灵感素材库
         </Button>
-        <Badge tone="amber">自制示例 / 非 AI 结果</Badge>
+        <Badge tone={c.space === "demo" ? "amber" : "green"}>
+          {c.space === "demo"
+            ? "自制示例 / 非 AI 结果"
+            : `个人素材 · ${asset.archived ? "已归档" : "已入库"}`}
+        </Badge>
       </div>
       <PageTitle
         eyebrow="WATCH WITH A QUESTION"
@@ -122,41 +179,98 @@ export function Analysis() {
         <div className="analysis-main">
           <Card className="player-card">
             <div className="player-area">
-              {asset.status === "available" && !playError ? (
+              {asset.status === "available" &&
+              !playError &&
+              (c.space === "demo" || source) ? (
                 <video
                   key={asset.id}
-                  ref={videoRef}
+                  ref={(node) => {
+                    videoRef.current = node;
+                    if (node) activeVideo.current = node;
+                  }}
                   controls
                   playsInline
                   preload="metadata"
-                  src="./demo/three-scenes.mp4"
+                  src={
+                    c.space === "demo" ? "./demo/three-scenes.mp4" : source?.url
+                  }
                   onTimeUpdate={(e) =>
                     setCurrentMs(Math.round(e.currentTarget.currentTime * 1000))
                   }
-                  onError={() => setPlayError(true)}
-                  aria-label="12 秒工作台自制几何示例视频"
+                  onLoadedMetadata={(e) => {
+                    const v = e.currentTarget;
+                    const ms = Math.round(v.duration * 1000);
+                    if (Number.isFinite(ms) && ms > 0) {
+                      setDuration(ms);
+                      setDimensions(`${v.videoWidth} × ${v.videoHeight}`);
+                    }
+                    if (source && c.space === "personal")
+                      void personalMedia
+                        .metadata({
+                          id: asset.id,
+                          contentHash: source.contentHash,
+                          playbackToken: source.playbackToken,
+                          durationMs: ms,
+                          width: v.videoWidth,
+                          height: v.videoHeight,
+                        })
+                        .catch((e) => c.notify(nativeErrorMessage(e)));
+                  }}
+                  onError={(e) => {
+                    setPlayError(true);
+                    const code = e.currentTarget.error?.code;
+                    setSourceError(
+                      code === 3
+                        ? "媒体解码失败：可能已损坏或编码不可用。管理副本和资料仍保留。"
+                        : code === 4
+                          ? "当前 WKWebView 无法加载此媒体来源或编码；不自动转码。"
+                          : "媒体读取失败，请检查副本与权限。",
+                    );
+                    if (source)
+                      void personalMedia
+                        .playbackFailed(
+                          asset.id,
+                          source.contentHash,
+                          source.playbackToken,
+                        )
+                        .catch(() => {});
+                  }}
+                  aria-label={
+                    c.space === "demo"
+                      ? "12 秒工作台自制几何示例视频"
+                      : `个人视频：${asset.title}`
+                  }
                 />
               ) : (
                 <div className="player-missing">
                   <Film size={38} />
                   <h3>
-                    {asset.status === "link_only"
-                      ? "未关联本地视频"
-                      : playError
-                        ? "示例视频暂时无法播放"
-                        : "示例：媒体文件缺失"}
+                    {c.space === "personal"
+                      ? sourceError ||
+                        (asset.status === "missing"
+                          ? "管理副本缺失"
+                          : "正在解析个人视频…")
+                      : asset.status === "link_only"
+                        ? "未关联本地视频"
+                        : playError
+                          ? "示例视频暂时无法播放"
+                          : "示例：媒体文件缺失"}
                   </h3>
                   <p>
-                    {asset.status === "link_only"
-                      ? "链接记录不代表已经下载视频。"
-                      : "学习目标与文字笔记仍然可以查看。"}
+                    {c.space === "personal"
+                      ? "素材资料仍保留。副本缺失时，重新选择同内容视频可修复。"
+                      : asset.status === "link_only"
+                        ? "链接记录不代表已经下载视频。"
+                        : "学习目标与文字笔记仍然可以查看。"}
                   </p>
                   <Button
                     onClick={() =>
-                      c.unavailable(
-                        "重新关联媒体 · D3",
-                        "D3 将提供原生文件选择与受管理媒体路径。当前缺失状态是明确标识的示例。",
-                      )
+                      c.space === "personal"
+                        ? c.nativeAction("import")
+                        : c.unavailable(
+                            "重新关联媒体 · D3",
+                            "D3 将提供原生文件选择与受管理媒体路径。当前缺失状态是明确标识的示例。",
+                          )
                     }
                   >
                     查看重新关联说明
@@ -166,8 +280,18 @@ export function Analysis() {
             </div>
             <div className="player-caption">
               <span>
-                <Badge tone="purple">自制演示</Badge> 12 秒 · 方块 / 三个框 /
-                圆环
+                {c.space === "demo" ? (
+                  <>
+                    <Badge tone="purple">自制演示</Badge> 12 秒 · 方块 / 三个框
+                    / 圆环
+                  </>
+                ) : (
+                  <>
+                    <Badge tone="green">个人管理副本</Badge>{" "}
+                    {duration ? timeLabel(duration) : "时长尚未读取"}{" "}
+                    {dimensions} · {timeLabel(currentMs)}
+                  </>
+                )}
               </span>
               <label className="speed-select">
                 倍速
@@ -189,6 +313,21 @@ export function Analysis() {
           </Card>
           <div className="timeline-notes">
             <span className="subtle">手动时间标记</span>
+            {c.space === "personal" && (
+              <label className="personal-seek">
+                播放位置
+                <input
+                  type="range"
+                  aria-label="个人视频播放位置"
+                  min="0"
+                  max={duration ?? 0}
+                  step="100"
+                  value={Math.min(currentMs, duration ?? 0)}
+                  disabled={!duration}
+                  onChange={(e) => seek(Number(e.target.value))}
+                />
+              </label>
+            )}
             {notes.map((n) => (
               <button key={n.id} onClick={() => seek(n.timeMs)}>
                 {timeLabel(n.timeMs)} <span>{n.dimension}</span>
@@ -211,7 +350,19 @@ export function Analysis() {
                 添加笔记
               </Button>
             </div>
-            {tab === "notes" && (
+            {c.space === "personal" && (
+              <EmptyState
+                title={
+                  tab === "transcript"
+                    ? "个人字幕尚未导入"
+                    : tab === "structure"
+                      ? "个人拆解尚未接入"
+                      : "个人时间点笔记将在 D4 开放"
+                }
+                description="本轮提供真实视频播放和素材资料，不生成示例内容或 AI 报告。"
+              />
+            )}
+            {c.space === "demo" && tab === "notes" && (
               <div className="notes-list">
                 {notes.length ? (
                   notes.map((n) => (
@@ -286,7 +437,7 @@ export function Analysis() {
                 )}
               </div>
             )}
-            {tab === "structure" && (
+            {c.space === "demo" && tab === "structure" && (
               <div className="structure-cards">
                 {[
                   {
@@ -312,7 +463,7 @@ export function Analysis() {
                 ))}
               </div>
             )}
-            {tab === "transcript" && (
+            {c.space === "demo" && tab === "transcript" && (
               <EmptyState
                 icon={FileText}
                 title="这份自制示例没有字幕"
@@ -335,23 +486,29 @@ export function Analysis() {
         <aside className="analysis-aside">
           <Card>
             <SectionTitle title="本次学习目标" />
-            <Field label="带着什么问题观看？">
-              <textarea
-                rows={4}
-                value={asset.learningGoal}
-                onChange={(e) =>
-                  c.mutate((w) => ({
-                    ...w,
-                    assets: w.assets.map((a) =>
-                      a.id === asset.id
-                        ? { ...a, learningGoal: e.target.value }
-                        : a,
-                    ),
-                  }))
-                }
-              />
-            </Field>
-            <p className="subtle">示例编辑仅在当前会话保留。</p>
+            {c.space === "personal" ? (
+              <AssetEditor asset={asset} compact />
+            ) : (
+              <>
+                <Field label="带着什么问题观看？">
+                  <textarea
+                    rows={4}
+                    value={asset.learningGoal}
+                    onChange={(e) =>
+                      c.mutate((w) => ({
+                        ...w,
+                        assets: w.assets.map((a) =>
+                          a.id === asset.id
+                            ? { ...a, learningGoal: e.target.value }
+                            : a,
+                        ),
+                      }))
+                    }
+                  />
+                </Field>
+                <p className="subtle">示例编辑仅在当前会话保留。</p>
+              </>
+            )}
           </Card>
           <Card>
             <div className="mini-icon">
@@ -368,11 +525,12 @@ export function Analysis() {
             </Button>
           </Card>
           <div className="source-note">
-            <h4>关于这份示例</h4>
+            <h4>{c.space === "demo" ? "关于这份示例" : "关于个人素材"}</h4>
             <p>{asset.description}</p>
             <p>
-              短片由本工程生成，内容与笔记对应。没有调用
-              AI，也没有读取你的私人视频。
+              {c.space === "demo"
+                ? "短片由本工程生成，内容与笔记对应。没有调用 AI，也没有读取你的私人视频。"
+                : "此视频来自原生手动导入，播放应用管理副本。未调用 AI；字幕、笔记与个人创作保存尚未接入。"}
             </p>
           </div>
         </aside>

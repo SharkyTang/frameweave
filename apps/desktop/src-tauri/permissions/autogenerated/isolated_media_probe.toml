@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-isolated-media-probe"
+description = "Enables the isolated_media_probe command without any pre-configured scope."
+commands.allow = ["isolated_media_probe"]
+
+[[permission]]
+identifier = "deny-isolated-media-probe"
+description = "Denies the isolated_media_probe command without any pre-configured scope."
+commands.deny = ["isolated_media_probe"]

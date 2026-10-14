@@ -1,7 +1,27 @@
 {
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "main",
-  "description": "单主窗口，仅监听桌面动作。无任意文件、网络、SQL 或 shell 权限。",
+  "description": "可信主窗口的类型化业务命令与事件监听；无通用文件、SQL、网络或 shell 权限。",
   "windows": ["main"],
-  "permissions": ["core:event:allow-listen", "core:event:allow-unlisten"]
+  "permissions": [
+    "core:event:allow-listen",
+    "core:event:allow-unlisten",
+    "allow-shell-info",
+    "allow-remember-route",
+    "allow-quit-application",
+    "allow-library-info",
+    "allow-list-assets",
+    "allow-get-asset",
+    "allow-update-asset",
+    "allow-choose-local-videos",
+    "allow-start-import",
+    "allow-import-batch",
+    "allow-cancel-import",
+    "allow-resolve-playback",
+    "allow-release-playback",
+    "allow-record-media-metadata",
+    "allow-record-playback-failure",
+    "allow-isolated-media-probe",
+    "allow-record-isolated-probe"
+  ]
 }

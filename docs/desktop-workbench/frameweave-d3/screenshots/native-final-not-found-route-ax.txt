@@ -1,0 +1,50 @@
+Window: "FrameWeave · 映构视频创作工作台", App: FrameWeave.
+0 standard window FrameWeave · 映构视频创作工作台, Secondary Actions: Raise
+	1 scroll area
+		2 HTML content Description: FrameWeave · 映构视频创作工作台, URL: tauri://localhost#/analysis/11111111-1111-4111-8111-111111111111
+			3 container 主导航
+				4 text FrameWeave
+				5 text 映构 · 创作者工作台
+				6 button Help: 切换个人空间 / 演示空间, 我
+我的工作空间 本地 · 个人
+				7 container
+					8 text 工作区
+					9 button 工作台
+					10 text 学习
+					11 button 灵感素材库
+					12 button 视频拆解
+					13 button 创作方法库
+					14 text 创作
+					15 button 创作导师
+					16 button 我的作品
+					17 text 发现
+					18 button 爆款雷达 规划中, Help: 爆款雷达
+					19 text 系统
+					20 button 设置
+				21 text AI / 下载插件尚未接入 本地素材 · D3
+				22 button 收起侧导航
+			23 container
+				24 text 我的创作空间 / 视频拆解
+				25 button 搜索与命令 ⌘ K
+				26 text 个人空间 我
+			27 container
+				28 text VIDEO LEARNING SPACE
+				29 heading 视频拆解, Value: 1
+					30 text 视频拆解
+				31 text 带着一个问题观看，让每条笔记都有上下文。
+				32 heading 选择一条参考，开始认真观察, Value: 2
+					33 text 选择一条参考，开始认真观察
+				34 text 当前个人资料库没有这条素材，请返回素材库选择。
+				35 button 查看示例空间
+				36 button 选择素材
+			37 container
+				38 text 本机桌面窗口  · 个人素材 / 已入库资料 V 0.1.0 | D3
+	39 close button
+	40 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	41 minimize button
+	42 text FrameWeave · 映构视频创作工作台
+43 menu bar
+	44 FrameWeave
+	45 文件
+	46 编辑
+	47 窗口

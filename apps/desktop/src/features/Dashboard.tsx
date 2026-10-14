@@ -60,7 +60,9 @@ export function Dashboard() {
               <p>
                 {project
                   ? "简报、脚本与分镜已经准备好。接下来，把计划变成镜头。"
-                  : "把参考留在这里，把观察写下来，再用自己的方式表达。当前可以先体验完整示例流程。"}
+                  : c.space === "personal"
+                    ? "导入本地视频，整理资料，再带着一个问题观看。"
+                    : "把参考留在这里，把观察写下来，再用自己的方式表达。当前可以先体验完整示例流程。"}
               </p>
               <div className="hero-actions">
                 {project ? (
@@ -71,13 +73,20 @@ export function Dashboard() {
                   >
                     继续编辑
                   </Button>
+                ) : c.space === "personal" ? (
+                  <Button
+                    tone="primary"
+                    onClick={() => c.nativeAction("import")}
+                  >
+                    导入本地视频
+                  </Button>
                 ) : (
                   <DemoEntry />
                 )}
                 {project ? (
                   <Badge tone="purple">{project.stage} · 示例</Badge>
                 ) : (
-                  <span className="subtle">个人素材将在 D3 开放</span>
+                  <span className="subtle">原视频保留 · 资料留在本机</span>
                 )}
               </div>
             </div>
@@ -121,16 +130,7 @@ export function Dashboard() {
                       w.notes.filter((n) => n.assetId === asset.id).length
                     }
                     onOpen={() => c.navigate(`/analysis/${asset.id}`)}
-                    onFavorite={() =>
-                      c.mutate((data) => ({
-                        ...data,
-                        assets: data.assets.map((a) =>
-                          a.id === asset.id
-                            ? { ...a, favorite: !a.favorite }
-                            : a,
-                        ),
-                      }))
-                    }
+                    onFavorite={() => c.toggleFavorite(asset)}
                   />
                 ))}
             </div>
@@ -142,7 +142,7 @@ export function Dashboard() {
               <div>
                 <h3>第一条参考，值得认真留下。</h3>
                 <p className="subtle">
-                  你的资料库还是空的。D3 将支持本地视频与参考链接。
+                  还没有未归档的素材。选择本地视频，复制到资料库。
                 </p>
                 <Button
                   tone="ghost"
@@ -180,7 +180,9 @@ export function Dashboard() {
                 </div>
                 <div>
                   <strong>
-                    {item.value}
+                    {c.space === "personal" && item.label !== "参考素材"
+                      ? "—"
+                      : item.value}
                     <span>{c.space === "demo" ? "示例" : "本地"}</span>
                   </strong>
                   <p>{item.label}</p>
@@ -257,8 +259,8 @@ export function Dashboard() {
           icon={Link}
           onClick={() =>
             c.unavailable(
-              "保存参考链接 · D3",
-              "下一阶段只保存你填写的链接元数据，不会下载或请求远程内容。",
+              "参考链接保存尚未开放",
+              "本轮支持本地视频管理，参考链接仍未接入个人保存。",
             )
           }
         >

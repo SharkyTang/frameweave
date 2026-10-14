@@ -1,0 +1,96 @@
+{
+  "recordedAtUtc": "2026-10-14T21:57:31.329717+00:00",
+  "environment": "macOS 26.6.2 (25G83), arm64",
+  "appExecutableSha256": "407b4b2ff9ca89eb93c79bba28bc504f5b1e133f2f329033acdd14e8ff97fc20",
+  "isolatedRoot": "/private/tmp/frameweave-d3-native-validation",
+  "allNativeTestProcessesExitedNormally": true,
+  "schemaVersion": 1,
+  "journalMode": "delete",
+  "foreignKeyViolations": [],
+  "assets": [
+    {
+      "id": "92435947-9fdc-42f9-bf91-e979e497d6d8",
+      "title": "D3 原生验证 😀 <b>按纯文本</b>",
+      "description": "管理副本验证，不改动原视频。",
+      "learning_goal": "观察中后段 seek 与音轨。",
+      "revision": 4,
+      "favorite": 1,
+      "archived_at": null,
+      "byte_size": 41930946,
+      "sha256": "258cb8675c3e8b0012c432ae5cc16a6813ccffd2512694bb9a5184c8341c821c",
+      "duration_ms": 180000,
+      "width": 640,
+      "height": 360,
+      "playback_status": "metadata_loaded",
+      "tags": [
+        "原生",
+        "音轨",
+        "复核"
+      ]
+    },
+    {
+      "id": "aa474f2c-dba5-4a31-8fdc-b3f6a1f1733f",
+      "title": "长片_150分钟_约2GiB",
+      "description": "",
+      "learning_goal": "",
+      "revision": 0,
+      "favorite": 0,
+      "archived_at": null,
+      "byte_size": 2096466000,
+      "sha256": "5451bc9a284cade2ca338204c613fd66a7cdb57ebd7bf22aa8cb998b40cf4618",
+      "duration_ms": 9001045,
+      "width": 640,
+      "height": 360,
+      "playback_status": "metadata_loaded",
+      "tags": []
+    }
+  ],
+  "importAttempts": [
+    {
+      "id": "059420e0-cd33-4f44-a1f5-d2401da520a6",
+      "batch_id": "cc0e24e1-a13e-473b-83af-d35dd9cc8b20",
+      "state": "imported",
+      "bytes_copied": 41930946,
+      "total_bytes": 41930946,
+      "asset_id": "92435947-9fdc-42f9-bf91-e979e497d6d8"
+    },
+    {
+      "id": "926571a2-a182-4a20-85a9-c83e7f951f52",
+      "batch_id": "65955ce8-19fb-4539-a780-4299574295ae",
+      "state": "duplicate",
+      "bytes_copied": 41930946,
+      "total_bytes": 41930946,
+      "asset_id": "92435947-9fdc-42f9-bf91-e979e497d6d8"
+    },
+    {
+      "id": "1bb2bffa-7b6a-4685-860d-1e9beee66f7f",
+      "batch_id": "aa524f0a-0a95-4415-ba83-f96826338686",
+      "state": "imported",
+      "bytes_copied": 2096466000,
+      "total_bytes": 2096466000,
+      "asset_id": "aa474f2c-dba5-4a31-8fdc-b3f6a1f1733f"
+    },
+    {
+      "id": "f53f4296-2ac4-4398-9f84-98bd8fcf888e",
+      "batch_id": "f5b71fed-2743-475d-acd2-cc7c144fdf29",
+      "state": "cancelled",
+      "bytes_copied": 519045120,
+      "total_bytes": 2096466000,
+      "asset_id": null
+    }
+  ],
+  "stagingEmpty": true,
+  "routingFaultFixturesRestored": true,
+  "syntheticSourcesRestored": true,
+  "userConfirmations": [
+    {
+      "build": "first D3 production app",
+      "text": "画面正常，也能听到音调"
+    },
+    {
+      "build": "final D3 production app",
+      "executableSha256": "407b4b2ff9ca89eb93c79bba28bc504f5b1e133f2f329033acdd14e8ff97fc20",
+      "text": "最终包画面和音调都正常"
+    }
+  ]
+}

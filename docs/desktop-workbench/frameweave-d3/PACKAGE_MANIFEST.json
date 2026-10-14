@@ -1,0 +1,38 @@
+{
+  "package": "FrameWeave · 映构 — D3 Codex 开发交接包",
+  "date": "2026-10-14",
+  "artifact_type": "implementation_plan_and_prompts_not_application",
+  "scope": "D3 only",
+  "counts": {
+    "execution_batches": 6,
+    "development_tasks": 70,
+    "acceptance_checks": 54
+  },
+  "files": [
+    {
+      "path": "FrameWeave_映构_D3_Codex新对话提示词_2026-10-14.md",
+      "bytes": 14177,
+      "sha256": "f75df2df51e6edae74821e6a61017a83a0c6eadcb4fd58fee78919f217808b8a"
+    },
+    {
+      "path": "FrameWeave_映构_D3_Codex详细执行规划_2026-10-14.md",
+      "bytes": 62526,
+      "sha256": "0e99de82c058fb5a8919b151640b7ac7809d0d575ea189616fab2d390c404f14"
+    },
+    {
+      "path": "README_先读.md",
+      "bytes": 2276,
+      "sha256": "2c2c7c6aadf76e7f5a9de959e90ab117018a6975a2898d1d158aacba7b27d5af"
+    },
+    {
+      "path": "sources/D2_HANDOFF.md",
+      "bytes": 7973,
+      "sha256": "590eb98e790b5993d6ad881ecdc54c392bd23a9245589b4e839d62b3075db2ab"
+    },
+    {
+      "path": "sources/REBRAND_HANDOFF.md",
+      "bytes": 2365,
+      "sha256": "e2ff7a7556b3697a2e6563a5306710d408aca27d57ad84fe25e0c9fb08e0edce"
+    }
+  ]
+}

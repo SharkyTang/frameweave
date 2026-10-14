@@ -1,0 +1,81 @@
+Window: "FrameWeave · 映构视频创作工作台", App: FrameWeave.
+0 standard window FrameWeave · 映构视频创作工作台, Secondary Actions: Raise
+	1 scroll area
+		2 HTML content Description: FrameWeave · 映构视频创作工作台, URL: tauri://localhost#/analysis/92435947-9fdc-42f9-bf91-e979e497d6d8
+			3 container 主导航
+				4 text FrameWeave
+				5 text 映构 · 创作者工作台
+				6 button Help: 切换个人空间 / 演示空间, 我
+我的工作空间 本地 · 个人
+				7 container
+					8 text 工作区
+					9 button 工作台
+					10 text 学习
+					11 button 灵感素材库
+					12 button 视频拆解
+					13 button 创作方法库
+					14 text 创作
+					15 button 创作导师
+					16 button 我的作品
+					17 text 发现
+					18 button 爆款雷达 规划中, Help: 爆款雷达
+					19 text 系统
+					20 button 设置
+				21 text AI / 下载插件尚未接入 本地素材 · D3
+				22 button 收起侧导航
+			23 container
+				24 text 我的创作空间 / 视频拆解
+				25 button 搜索与命令 ⌘ K
+				26 text 个人空间 我
+			27 container
+				28 button 灵感素材库
+				29 text 个人素材 · 已入库 WATCH WITH A QUESTION
+				30 heading D3 原生验证 😀 <b>按纯文本</b>, Value: 1
+					31 text D3 原生验证 😀 <b>按纯文本</b>
+				32 text 观察中后段 seek 与音轨。
+				33 button AI 深度拆解 未接入
+				34 button 从参考开始创作
+				35 heading 管理副本缺失。资料仍保留；重新选择同内容视频可修复。, Value: 3
+					36 text 管理副本缺失。资料仍保留；重新选择同内容视频可修复。
+				37 text 素材资料仍保留。副本缺失时，重新选择同内容视频可修复。
+				38 button 查看重新关联说明
+				39 text 个人管理副本 时长尚未读取 ·  00:00 倍速
+				40 pop up button 播放倍速, Value: 1×
+				41 text 手动时间标记 播放位置
+				42 slider (disabled, settable, float) 个人视频播放位置, Value: 0
+					43 value indicator 0
+				44 tab group (selectable) 学习内容
+					45 tab (selected) 时间点笔记
+					46 tab (selectable) 手动拆解
+					47 tab (selectable) 文案 / 字幕
+				48 button 添加笔记
+				49 heading 个人时间点笔记将在 D4 开放, Value: 2
+					50 text 个人时间点笔记将在 D4 开放
+				51 text 本轮提供真实视频播放和素材资料，不生成示例内容或 AI 报告。
+				52 heading 本次学习目标, Value: 2
+					53 text 本次学习目标
+				54 container
+					55 text 带着什么问题观看？
+					56 text entry area (settable) 带着什么问题观看？, Value: [text entry area]
+						57 text (settable) 观察中后段 seek 与音轨。
+					58 button (disabled) 保存素材资料
+					59 text 资料已入库 只保存素材资料。字幕与时间点笔记将在 D4 开放。
+				60 heading 学到的方法，带进创作。, Value: 3
+					61 text 学到的方法，带进创作。
+				62 text 把具体观察整理为方法卡，保留来源与时间点。
+				63 button 打开创作方法库
+				64 heading 关于个人素材, Value: 4
+					65 text 关于个人素材
+				66 text 管理副本验证，不改动原视频。
+				67 text 此视频来自原生手动导入，播放应用管理副本。未调用 AI；字幕、笔记与个人创作保存尚未接入。
+			68 container
+				69 text 本机桌面窗口  · 个人素材 / 已入库资料 V 0.1.0 | D3
+	70 close button
+	71 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	72 minimize button
+	73 text FrameWeave · 映构视频创作工作台
+74 menu bar
+	75 FrameWeave
+	76 文件
+	77 编辑
+	78 窗口

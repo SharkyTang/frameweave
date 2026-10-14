@@ -1,0 +1,62 @@
+{
+  "recordedAtUtc": "2026-10-14T21:57:31.329717+00:00",
+  "head": "4338b275185aad08889f0748bb20c3971fceb90b",
+  "origin": "https://github.com/SharkyTang/frameweave.git",
+  "stagedDiffUnchanged": true,
+  "headAndRemotesUnchanged": true,
+  "protectedFilesDeleted": [],
+  "authorizedExistingFilesModified": [
+    "apps/desktop/tests/startup.test.tsx",
+    "apps/desktop/tests/ui/workbench.spec.ts",
+    "apps/desktop/scripts/desktop.mjs",
+    "apps/desktop/src-tauri/Cargo.toml",
+    "apps/desktop/src-tauri/tauri.conf.json",
+    "apps/desktop/src-tauri/Cargo.lock",
+    "apps/desktop/src-tauri/build.rs",
+    "apps/desktop/src-tauri/capabilities/main.json",
+    "apps/desktop/src-tauri/src/lib.rs",
+    "apps/desktop/src/App.tsx",
+    "apps/desktop/src/styles.css",
+    "apps/desktop/src/domain.ts",
+    "apps/desktop/src/app/Shell.tsx",
+    "apps/desktop/src/app/context.tsx",
+    "apps/desktop/src/app/Dialogs.tsx",
+    "apps/desktop/src/features/Settings.tsx",
+    "apps/desktop/src/features/Dashboard.tsx",
+    "apps/desktop/src/features/Library.tsx",
+    "apps/desktop/src/features/Analysis.tsx",
+    "apps/desktop/src/adapters/desktop.ts",
+    "apps/desktop/src/components/ui.tsx",
+    "apps/desktop/src/ports/index.ts"
+  ],
+  "initialD3InputDocumentsUnchanged": true,
+  "existingCargoPackageVersionsRetained": true,
+  "cargoPackageEntriesAdded": 21,
+  "formalAppDataFiles": [
+    "shell.json"
+  ],
+  "formalBusinessDatabaseCreated": false,
+  "formalShellChangedKeys": [
+    "x",
+    "y"
+  ],
+  "formalShellBefore": {
+    "route": "/home",
+    "width": 1024.0,
+    "height": 680.0,
+    "x": 418,
+    "y": 234
+  },
+  "formalShellCurrent": {
+    "route": "/home",
+    "width": 1024.0,
+    "height": 680.0,
+    "x": 294,
+    "y": 254
+  },
+  "formalShellNote": "保留当前窗口位置；没有用旧备份覆盖个人偏好。业务故障注入均在隔离根。",
+  "rebrandTemporaryBackupStillExists": true,
+  "durableProtection": "/Users/shaoqitang/Documents/Codex/2026-10-14/macos-frameweave-d3-1-agents-md-2/protection",
+  "diffWhitespaceCheck": "PASS",
+  "scope": "D3 only; no D4/D5, no commit/push/reset/stash/remote edit"
+}

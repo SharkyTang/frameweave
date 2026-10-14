@@ -26,7 +26,7 @@ export function Settings() {
     document.documentElement.dataset.density ?? "normal",
   );
   const diagnostics = useRef<HTMLTextAreaElement>(null);
-  const diag = `FrameWeave · 映构 ${c.info?.version ?? "0.1.0"}\n阶段: D2\n环境: ${c.info?.native ? "Tauri 桌面" : "浏览器组件预览"}\n平台: ${c.info?.platform ?? "读取中"} / ${c.info?.architecture ?? "读取中"}\n资料目录: <应用资料目录>\n业务数据库: 尚未建立（D3）\nAI / 下载插件: 未接入\n本次空间: ${c.space === "demo" ? "演示" : "个人"}\n包含个人脚本或媒体: 否`;
+  const diag = `FrameWeave · 映构 ${c.info?.version ?? "0.1.0"}\n阶段: D3\n环境: ${c.info?.native ? "Tauri 桌面" : "浏览器组件预览"}\n平台: ${c.info?.platform ?? "读取中"} / ${c.info?.architecture ?? "读取中"}\n资料目录: <应用资料目录>\n业务数据库: ${c.libraryInfo?.ready ? `SQLite schema ${c.libraryInfo.schemaVersion} / ${c.libraryInfo.journalMode}` : "原生资料库不可用（浏览器预览）"}\nAI / 下载插件: 未接入\n本次空间: ${c.space === "demo" ? "演示" : "个人"}\n包含个人脚本或媒体: 否`;
   return (
     <>
       <PageTitle
@@ -66,7 +66,7 @@ export function Settings() {
           <Card className="settings-section">
             <SectionTitle
               title="本地资料"
-              note="桌面壳已经创建专用资料目录，业务数据库将在 D3 加入。"
+              note="窗口与路由仍保存在 shell.json；素材资料和副本保存在独立目录。"
             />
             <div className="data-path">
               <FolderOpen size={18} />
@@ -78,17 +78,33 @@ export function Settings() {
               </span>
               <div>
                 <strong>个人 SQLite 与媒体资料库</strong>
-                <p className="subtle">D3 接入真实导入、复制与重启恢复</p>
+                <p className="subtle">
+                  {c.libraryInfo?.ready
+                    ? `已就绪 · schema ${c.libraryInfo.schemaVersion} · 原生复制导入`
+                    : "浏览器预览不使用个人资料库"}
+                </p>
               </div>
-              <Badge>尚未建立</Badge>
+              <Badge tone={c.libraryInfo?.ready ? "green" : "amber"}>
+                {c.libraryInfo?.ready ? "本机可用" : "原生不可用"}
+              </Badge>
             </div>
+            {c.libraryInfo && c.libraryInfo.recoveryWarnings > 0 && (
+              <p role="alert">
+                有 {c.libraryInfo.recoveryWarnings}{" "}
+                项导入残留或未知文件待检查。原文件与记录已保留，没有自动删除。
+              </p>
+            )}
+            <p className="subtle">
+              data/frameweave.sqlite3 · media/originals ·
+              staging（不向播放器开放）
+            </p>
             <div className="stack-actions">
               <Button
                 icon={Database}
                 onClick={() =>
                   c.unavailable(
                     "元数据备份 · D7",
-                    "D7 将使用一致性 SQLite 备份。元数据备份不包含视频文件；当前没有业务数据库，不生成假备份。",
+                    "D7 将使用一致性 SQLite 备份。元数据备份不包含视频文件；本轮未提供产品备份操作。",
                   )
                 }
               >
@@ -172,7 +188,7 @@ export function Settings() {
             <h2>FrameWeave · 映构</h2>
             <p className="subtle">视频创作者的本地工作台</p>
             <Badge tone="purple">
-              V{c.info?.version ?? "0.1.0"} · D2 桌面预览
+              V{c.info?.version ?? "0.1.0"} · D3 本地素材
             </Badge>
             <div className="detail-info">
               <span>运行环境</span>
@@ -211,9 +227,10 @@ export function Settings() {
             </div>
           </div>
           <div className="source-note">
-            <h4>D2 的边界</h4>
+            <h4>D3 的边界</h4>
             <p>
-              桌面窗口和菜单可用。真实视频导入、业务存储、导出与备份将按后续阶段实现。
+              原生选择并复制 MP4/MOV 候选，一次20个、单文件5
+              GiB。已入库与可播放分别核验；字幕/笔记、创作、导出与备份按后续阶段开放。
             </p>
           </div>
         </aside>
