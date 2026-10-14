@@ -1,0 +1,212 @@
+{
+  "recordedAtUtc": "2026-10-14T23:00:47.987937+00:00",
+  "scope": "Permission-source diagnosis and approved read-only comparison; no native D3 acceptance performed",
+  "diagnosticCliVersion": "0.162.0-alpha.17.2",
+  "sessionPolicyTransitions": [
+    {
+      "sessionFile": "/Users/shaoqitang/.codex/sessions/2026/10/14/rollout-2026-10-14T21-32-39-01a13c1d-f9b4-7312-93b9-af701be87519.jsonl",
+      "line": 8,
+      "recordedAtUtc": "2026-10-14T20:32:41.379Z",
+      "approvalPolicy": "on-request",
+      "sandboxType": "workspace-write",
+      "activePermissionProfile": {
+        "id": ":workspace"
+      },
+      "permissionProfileSha256": "ff696265c5bab29fb17f435800b681f80f5f73376d9669ae82b4783707542e9b"
+    },
+    {
+      "sessionFile": "/Users/shaoqitang/.codex/sessions/2026/10/14/rollout-2026-10-14T21-32-39-01a13c1d-f9b4-7312-93b9-af701be87519.jsonl",
+      "line": 1901,
+      "recordedAtUtc": "2026-10-14T22:07:53.955Z",
+      "approvalPolicy": {
+        "granular": {
+          "sandbox_approval": false,
+          "rules": false,
+          "skill_approval": false,
+          "request_permissions": true,
+          "mcp_elicitations": true
+        }
+      },
+      "sandboxType": "workspace-write",
+      "activePermissionProfile": {
+        "id": ":workspace"
+      },
+      "permissionProfileSha256": "ff696265c5bab29fb17f435800b681f80f5f73376d9669ae82b4783707542e9b"
+    },
+    {
+      "sessionFile": "/Users/shaoqitang/.codex/sessions/2026/10/14/rollout-2026-10-14T23-50-55-01a13c9c-8d01-78e1-a85b-5d07508c20fc.jsonl",
+      "line": 8,
+      "recordedAtUtc": "2026-10-14T22:50:56.642Z",
+      "approvalPolicy": {
+        "granular": {
+          "sandbox_approval": false,
+          "rules": false,
+          "skill_approval": false,
+          "request_permissions": true,
+          "mcp_elicitations": true
+        }
+      },
+      "sandboxType": "workspace-write",
+      "activePermissionProfile": {
+        "id": ":workspace"
+      },
+      "permissionProfileSha256": "f66cb7f2c2b7a772f66e190ba7de73ecee234efc90ddf250dc8d3500377d34db"
+    },
+    {
+      "sessionFile": "/Users/shaoqitang/.codex/sessions/2026/10/14/rollout-2026-10-14T23-50-55-01a13c9c-8d01-78e1-a85b-5d07508c20fc.jsonl",
+      "line": 135,
+      "recordedAtUtc": "2026-10-14T22:55:57.296Z",
+      "approvalPolicy": "on-request",
+      "sandboxType": "workspace-write",
+      "activePermissionProfile": {
+        "id": ":workspace"
+      },
+      "permissionProfileSha256": "f66cb7f2c2b7a772f66e190ba7de73ecee234efc90ddf250dc8d3500377d34db"
+    }
+  ],
+  "sameCurrentSessionPermissionProfileBeforeAndAfter": true,
+  "processReadComparison": [
+    {
+      "recordedAtUtc": "2026-10-14T22:56:23.912Z",
+      "mode": "default sandbox",
+      "command": "/bin/ps -axo pid=,ppid=,rss=,comm=",
+      "exitCode": 127,
+      "output": "zsh:1: operation not permitted: /bin/ps",
+      "sessionResultLine": 168,
+      "toolChunkId": "a99618"
+    },
+    {
+      "recordedAtUtc": "2026-10-14T22:56:30.564Z",
+      "mode": "require_escalated via available approval path",
+      "command": "/bin/ps -axo pid=,ppid=,rss=,comm=",
+      "exitCode": 0,
+      "processRowsObserved": true,
+      "sessionResultLine": 173,
+      "toolChunkId": "63488a",
+      "rawProcessListCopiedIntoProjectEvidence": false
+    }
+  ],
+  "localSourcesChecked": {
+    "userConfig": "/Users/shaoqitang/.codex/config.toml",
+    "explicitApprovalSandboxPermissionKeysInUserConfig": false,
+    "projectOrAncestorCodexConfigPresent": false,
+    "systemFilesPresent": {
+      "/etc/codex/config.toml": false,
+      "/etc/codex/requirements.toml": false,
+      "/etc/codex/managed_config.toml": false
+    },
+    "mdmPreferenceDomain": "com.openai.codex",
+    "mdmKeys": {
+      "config_toml_base64": {
+        "valuePresent": false,
+        "valueForced": false
+      },
+      "requirements_toml_base64": {
+        "valuePresent": false,
+        "valueForced": false
+      }
+    }
+  },
+  "approvedIndependentConfigRpc": {
+    "recordedAtUtc": "2026-10-14T23:00:06.523467+00:00",
+    "mode": "approved independent stdio config diagnostics only",
+    "methodsSent": [
+      "initialize",
+      "config/read",
+      "configRequirements/read"
+    ],
+    "nativeAppStarted": false,
+    "threadStarted": false,
+    "settingsWrittenByRpc": false,
+    "initialized": true,
+    "configResponseKeys": [
+      "config",
+      "origins",
+      "layers"
+    ],
+    "selectedEffectiveConfig": {
+      "approval_policy": null,
+      "approvals_reviewer": null,
+      "sandbox_mode": null,
+      "sandbox_workspace_write": null,
+      "default_permissions": null
+    },
+    "configLayers": [
+      {
+        "source": {
+          "type": "user",
+          "file": "/Users/shaoqitang/.codex/config.toml",
+          "profile": null
+        },
+        "version": "sha256:199bd05c976013abe780c9cc94facd507b5aece905dd66f2df293734e0c33ac9",
+        "selectedConfig": {},
+        "disabledReason": null
+      },
+      {
+        "source": {
+          "type": "system",
+          "file": "/etc/codex/config.toml"
+        },
+        "version": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "selectedConfig": {},
+        "disabledReason": null
+      }
+    ],
+    "selectedOrigins": {},
+    "requirementsResponseKeys": [
+      "supportsIndependentSpeedModes",
+      "requirements"
+    ],
+    "requirementsPresent": false,
+    "selectedRequirements": {},
+    "requirementsKeys": [],
+    "status": "READ_ONLY_RPC_COMPLETED",
+    "diagnosticChildExitCode": 0,
+    "stderrBytesDiscarded": 0
+  },
+  "conclusion": {
+    "observedDenyLayer": "Current command sandbox; earlier turn approval policy rejected sandbox escalation",
+    "observedPolicySource": "Per-turn runtime policy supplied to desktop session; false is not present in inspected local configuration sources",
+    "currentApprovalPolicy": "on-request",
+    "currentProcessReadWorksWithEscalation": true,
+    "defaultSandboxStillRejectsPs": true,
+    "globalSettingsChanged": false,
+    "newProjectOrThreadRequired": false,
+    "historicalBlockedEvidenceSupersededForCurrentCapability": true
+  },
+  "notDetermined": [
+    "Which UI or host-internal event caused the runtime policy transition",
+    "Exact kernel Seatbelt rule or denied syscall",
+    "Whether final native launch and vmmap attribution will succeed; not executed in this diagnostic"
+  ],
+  "nextAuthorizedNativeCommand": {
+    "script": "/Users/shaoqitang/Documents/Codex/2026-10-14/macos-frameweave-d3-1-agents-md-2/d3-followup/sample_import_memory.py",
+    "scriptSha256": "6319253da2045d07b011713ac2b831e8cbdc166bfd328598e046b6486dfa1762",
+    "requiresOwnApprovalIfOutsideSandbox": true,
+    "root": "/private/tmp/frameweave-d3-native-validation",
+    "fixture": "/private/tmp/frameweave-d3-native-validation/input/长片_150分钟_约2GiB.mp4",
+    "flags": [
+      "--launch",
+      "--responsible-method",
+      "vmmap-summary"
+    ],
+    "alreadyExecuted": false
+  },
+  "nativeAppLaunched": false,
+  "nativeTestsStarted": false,
+  "rssImportSamples": 0,
+  "acceptanceCountsUnchanged": {
+    "PASS": 50,
+    "MANUAL_PENDING": 3,
+    "NOT_RUN": 1
+  },
+  "productCodeChanged": false,
+  "committedOrPushed": false,
+  "enteredD4": false,
+  "officialReferences": [
+    "https://learn.chatgpt.com/docs/agent-approvals-security",
+    "https://learn.chatgpt.com/docs/config-file/config-reference",
+    "https://learn.chatgpt.com/docs/enterprise/managed-configuration",
+    "https://learn.chatgpt.com/docs/app-server"
+  ]
+}

@@ -328,9 +328,12 @@
       "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
       "evidence": [
         "D3_NATIVE_VALIDATION.md",
-        "evidence/native-after-cancel.json"
+        "evidence/native-after-cancel.json",
+        "evidence/followup-permission-gate-20261014T225141Z.json",
+        "evidence/followup-readonly-audit-20261014T225249Z.json",
+        "evidence/permission-source-diagnosis-20261014.json"
       ],
-      "notes": "UI继续/退出可响应；未采集导入期间RSS序列。现有124,846,080/130,383,872字节峰值只覆盖播放会话，不能冒充导入内存压力测试。"
+      "notes": "UI继续/退出可响应；未采集导入期间RSS序列。现有124,846,080/130,383,872字节峰值只覆盖播放会话，不能冒充导入内存压力测试。 2026-10-14 UTC22:51–22:52历史闸门：工程写入探针通过，但进程读取退出127且当时无可申请的进程授权，停在原生启动前。UTC22:55后策略变为on-request，经审批的ps已exit0；采样器/原生启动尚未执行，导入RSS样本仍为0，保持待验。"
     },
     {
       "id": "D3-V14",
@@ -634,9 +637,12 @@
       "environment": "本机macOS26.6.2/arm64；原生项为最终app及显式隔离根；Rust/React/浏览器层按method区分",
       "evidence": [
         "screenshots/native-final-picker-unsupported-pending-ax.txt",
-        "evidence/rust.log"
+        "evidence/rust.log",
+        "evidence/followup-permission-gate-20261014T225141Z.json",
+        "evidence/followup-readonly-audit-20261014T225249Z.json",
+        "evidence/permission-source-diagnosis-20261014.json"
       ],
-      "notes": "37字节FTYP候选在原生选择器Open禁用，未入库，不能冒充实际解码失败验收。MOV/HEVC等未测；无转码/联网后备。"
+      "notes": "37字节FTYP候选在原生选择器Open禁用，未入库，不能冒充实际解码失败验收。MOV/HEVC等未测；无转码/联网后备。 2026-10-14续做：另备Baseline、High444 10bit、保留索引的损坏mdat三份自制样本，大小/SHA本次匹配旧准备记录；原生闸门未过，未选择/导入/打开。历史FFmpeg预检不替代WK；High444支持情况未知。"
     },
     {
       "id": "D3-V38",
@@ -889,5 +895,92 @@
       "notarized": false,
       "details": "Executable=/Users/shaoqitang/Documents/ChatGPT/FrameWeave/deliverables/D3/FrameWeave.app/Contents/MacOS/frameweave-workbench\nIdentifier=com.sharkytang.frameweave.workbench\nFormat=app bundle with Mach-O thin (arm64)\nCodeDirectory v=20500 size=18340 flags=0x10002(adhoc,runtime) hashes=566+3 location=embedded\nHash type=sha256 size=32\nCandidateCDHash sha256=3860e43b96ed3c22fdad3967282cc9b88899a223\nCandidateCDHashFull sha256=3860e43b96ed3c22fdad3967282cc9b88899a223c9788c8747898278f8e4b5f4\nHash choices=sha256\nCMSDigest=3860e43b96ed3c22fdad3967282cc9b88899a223c9788c8747898278f8e4b5f4\nCMSDigestType=2\nCDHash=3860e43b96ed3c22fdad3967282cc9b88899a223\nSignature=adhoc\nInfo.plist entries=15\nTeamIdentifier=not set\nRuntime Version=27.0.0\nSealed Resources version=2 rules=13 files=1\nInternal requirements count=0 size=12\n"
     }
-  }
+  },
+  "followupAttempts": [
+    {
+      "recordedAtUtc": "2026-10-14T22:54:10.768804+00:00",
+      "scope": "D3 remaining acceptance only; environment gate and read-only protection audit",
+      "head": "16357690a2b7789d56f03e7ace923627564ca1dd",
+      "workingDirectory": "/Users/shaoqitang/Documents/ChatGPT/FrameWeave",
+      "initialWorkingTree": "CLEAN",
+      "gate": "BLOCKED_PROCESS_READ",
+      "evidenceWriteReadbackCleanup": "PASS",
+      "processRead": {
+        "exitCode": 127,
+        "output": "zsh:1: operation not permitted: ps",
+        "sandboxApprovalAllowed": false,
+        "requestPermissionsAvailable": true,
+        "requestPermissionsScopes": [
+          "file_system",
+          "network"
+        ],
+        "processGrantAvailable": false,
+        "escalationAttempted": false
+      },
+      "nativeAppLaunched": false,
+      "nativeProcessState": "UNVERIFIED_PROCESS_READ_DENIED",
+      "nativeTestsRun": [],
+      "rssSamplesCollected": 0,
+      "newScreenshots": 0,
+      "acceptanceCountsUnchanged": {
+        "PASS": 50,
+        "MANUAL_PENDING": 3,
+        "NOT_RUN": 1
+      },
+      "acceptanceStatusesChanged": false,
+      "historicalCodeChecksRerun": false,
+      "readonlyChecks": {
+        "manifestSourceEntriesMatched": 61,
+        "executableMatchesManifest": true,
+        "archiveMatchesManifest": true,
+        "databaseTablesMatchPreviousBackupApiSnapshot": true,
+        "assets": 2,
+        "importAttempts": 4,
+        "activeAttempts": 0,
+        "stagingFiles": 0,
+        "formalRootOnlyShellJson": true,
+        "preparedFixturesShaMatched": 3
+      },
+      "evidence": [
+        "evidence/followup-permission-gate-20261014T225141Z.json",
+        "evidence/followup-readonly-audit-20261014T225249Z.json"
+      ],
+      "productCodeChanged": false,
+      "rebuilt": false,
+      "committedOrPushed": false,
+      "enteredD4": false,
+      "nextPrerequisite": "Actual process-read capability; no current tool scope can grant it. Stop before native launch and do not bypass the denial.",
+      "manualChecks": "V48 real Chinese IME and V51 system offline remain pending; schedule only after controlled native testing is possible."
+    },
+    {
+      "recordedAtUtc": "2026-10-14T23:01:25.016905+00:00",
+      "scope": "Permission-source diagnosis only; not native D3 acceptance",
+      "gate": "PROCESS_READ_AVAILABLE_VIA_APPROVAL",
+      "currentApprovalPolicy": "on-request",
+      "policyTransitionAtUtc": "2026-10-14T22:55:57.296Z",
+      "permissionProfileUnchanged": true,
+      "defaultSandboxPsExitCode": 127,
+      "approvedSamePsExitCode": 0,
+      "approvedConfigReadStatus": "COMPLETED",
+      "independentConfigRequirementsPresent": false,
+      "causeLocatedTo": "Per-turn runtime approval policy and command sandbox; no matching local configuration value found",
+      "uiTransitionTrigger": "NOT_DETERMINED",
+      "nativeAppLaunched": false,
+      "nativeTestsRun": [],
+      "rssSamplesCollected": 0,
+      "acceptanceCountsUnchanged": {
+        "PASS": 50,
+        "MANUAL_PENDING": 3,
+        "NOT_RUN": 1
+      },
+      "evidence": [
+        "evidence/permission-source-diagnosis-20261014.json"
+      ],
+      "productCodeChanged": false,
+      "globalSettingsChanged": false,
+      "committedOrPushed": false,
+      "enteredD4": false,
+      "nextAction": "Request approval for the complete prepared sampler command with the marked isolated root; one approved ps run is not a grant for native launch or vmmap. Native results remain unverified."
+    }
+  ]
 }

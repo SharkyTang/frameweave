@@ -40,6 +40,9 @@ AX直接setValue/End/某些坐标seek尝试没有生效，坐标接口还返回n
 | 长片_150分钟_约2GiB.mp4 | 50段以上述文件stream-copy拼接；同编码 | 2,096,466,000字节；WK9001045ms | 原生成功入库、SHA匹配；约75分钟seek推进、1.5×、暂停；另一次导入安全取消 | 没有完整播放150分钟；无人再次逐段画面/听感确认 |
 | 不可解码.mp4 | 37字节自制FTYP候选，无有效视频轨 | 37字节 | 原生picker Open禁用，未入库 | 实际WK解码失败路径MANUAL_PENDING；不是已验证“不支持编码”样本 |
 | 取消退出验证.mp4 | 原测试片后truncate至1GiB的早期候选 | 1,073,741,824字节 | picker未提交；没有记成功/取消证据 | 后来用有效1.95GiB长片完成退出测试，不能混淆 |
+| D3_H264_Baseline_control.mp4 | MP4；H.264 Constrained Baseline/yuv420p；320×180/12fps；无音轨 | 289,053字节；夹具6秒 | NOT_RUN：续做权限闸门未过，未原生导入/打开 | 历史FFmpeg严格解码成功；不是WK结果 |
+| D3_H264_High444_10bit.mp4 | MP4；H.264 High 4:4:4 Predictive/yuv444p10le；320×180/12fps；无音轨 | 357,465字节；夹具6秒 | NOT_RUN：续做权限闸门未过，未原生导入/打开 | 历史FFmpeg严格解码成功；本机WK支持情况未知 |
+| D3_H264_intact_index_broken_mdat.mp4 | 保留ftyp/moov/avcC/样本表及长度，只将mdat负载归零 | 289,053字节；索引标记6秒，未取得WK时长 | NOT_RUN：续做权限闸门未过，未原生导入/打开 | 历史ffprobe成功，严格解码退出183；尚未触发WK错误 |
 | D2 three-scenes.mp4 | 已有无声H.264演示 | 保留原文件 | 浏览器既有播放/seek回归；本轮原生演示页面回归 | 不能作为D3音频证据 |
 | MOV / HEVC / ProRes / 其他MP4编码 | 未测 | — | 未声明支持 | 需要每类实际原生样本；无自动转码 |
 
@@ -61,7 +64,7 @@ ffmpeg -stream_loop 49 -i "$TEST_ROOT/input/原生音轨 空格#%.mp4" -c copy -
 ## 待验与限制
 
 - D3-V13：有效1.95GiB导入和UI响应已测；导入期间主进程/子进程RSS序列、接近5GiB持续压力未测。
-- D3-V37：损坏/不支持编码的最终原生解码错误还待可提交样本；当前37字节候选Open禁用。已有Rust头部拒绝与错误UI实现，不能替代这一原生检查。
+- D3-V37：损坏/不支持编码的最终原生解码错误待验；旧37字节候选Open禁用，续做已另备三份带有效封装/索引的候选，尚未在原生选择器提交。已有Rust头部拒绝、错误UI实现及FFmpeg夹具预检均不能替代这一原生检查。
 - D3-V48：真实中文输入法候选组合、候选Enter/Esc、Cmd+S组合尚待人工；组件isComposing和普通中文输入不替代。
 - D3-V51：未实际关闭系统网络；静态CSP和浏览器请求检查不替代。
 - 原生修复流程的额外面板提交待人工复验，Rust同内容/同ID/元资料保留测试已通过；最终原生重置演示完整流程未另行完成，隔离逻辑测试通过。
@@ -69,3 +72,15 @@ ffmpeg -stream_loop 49 -i "$TEST_ROOT/input/原生音轨 空格#%.mp4" -c copy -
 - 无Developer ID、无公证；ad hoc本机严格签名验证通过，不宣称跨机器Gatekeeper无提示。
 
 正式资料目录复核只有shell.json；没有创建业务库或导入测试视频。与保护副本相比shell仅x/y位置变化，route与1024×680尺寸相同；保留当前偏好，没有覆盖回旧备份。故障全部在标记隔离根；没有重复迁移旧品牌目录。
+
+## 2026-10-14 续做权限闸门与保护复核
+
+UTC22:51–22:52仅完成执行环境及只读资料复核，未启动原生应用。工程evidence自有临时文件写入/读回/清理通过；ps读取退出127并报operation not permitted。sandbox_approval=false，现有request_permissions只支持文件系统/网络，无法申请进程读取。本次不尝试其他进程API、Terminal或原生启动；不能确认当前应用进程状态。精确证据见 [followup-permission-gate-20261014T225141Z.json](evidence/followup-permission-gate-20261014T225141Z.json)。
+
+本次V13没有采集RSS，V37没有选入、打开或观察媒体事件，V48与V51也未执行；54项仍为50 PASS / 3 MANUAL_PENDING / 1 NOT_RUN。没有新的原生画面、声音或错误截图。前文原生过程、播放内存值、组件/Rust/浏览器数量均为历史结果，不是本次重新执行。
+
+本次以只读事务核对schema1/DELETE、quick_check=ok、无外键异常：隔离库逐表与before-followup.sqlite3一致，2资产/4尝试/0活动，staging空；未开始测试，无需再制作相同快照。正式根仅shell.json，其解析值与续做前一致。源码61项、最终exe及ZIP摘要匹配既有清单，未重新签名或构建。详见 [followup-readonly-audit-20261014T225249Z.json](evidence/followup-readonly-audit-20261014T225249Z.json)。
+
+矩阵新增三份夹具来自旧任务d3-followup的2026-10-14T22:11:33Z准备记录，本次只重核大小与SHA。原始media-fixtures.json、ffprobe与解码日志仍保留在旧目录；只读审计列明来源路径、元数据文件摘要及三份源摘要，没有重新生成或覆盖样本。High444是否受本机WK支持仍未知；损坏样本的FFmpeg失败不能算WK失败。后续须在受控隔离启动后逐个使用原生选择器导入，并记录asset、源/副本SHA、真实错误/播放状态、资料保留及正常片回归。
+
+权限诊断更新（UTC2026-10-14 22:55–23:00；伦敦日期已到15日）：本轮实际策略变为on-request，默认沙箱的ps仍拒绝，而经require_escalated正常审批的同命令已exit0。独立只读配置来源诊断也经审批成功，未发现本地配置/MDM中的false或requirements限制。详见 [权限来源实证](evidence/permission-source-diagnosis-20261014.json)。此前阻断段为历史记录；当前可走具体命令审批，不再要求重复切开关。此次仍未启动最终app或测试媒体，未验证vmmap权限及原生启动，V13/V37/V48/V51状态全部保持，不将进程诊断视为原生验收通过。

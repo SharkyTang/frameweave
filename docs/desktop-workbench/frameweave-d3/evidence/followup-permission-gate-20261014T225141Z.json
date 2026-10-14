@@ -1,0 +1,32 @@
+{
+  "recordedAtUtc": "2026-10-14T22:51:41.855669+00:00",
+  "cwd": "/Users/shaoqitang/Documents/ChatGPT/FrameWeave",
+  "writeProbe": {
+    "directory": "/Users/shaoqitang/Documents/ChatGPT/FrameWeave/docs/desktop-workbench/frameweave-d3/evidence",
+    "created": true,
+    "readbackMatched": true,
+    "deleted": true
+  },
+  "processReadProbe": {
+    "command": "ps -axo pid=,ppid=,rss=,comm=",
+    "executedPreviouslyThisTurn": true,
+    "exitCode": 127,
+    "output": "zsh:1: operation not permitted: ps\n",
+    "status": "DENIED"
+  },
+  "approvalCapabilities": {
+    "sandbox_approval": false,
+    "request_permissionsAvailable": true,
+    "request_permissionsScopes": [
+      "file_system",
+      "network"
+    ],
+    "processReadGrantAvailable": false,
+    "escalationAttempted": false
+  },
+  "gate": "BLOCKED_PROCESS_READ",
+  "nativeAppLaunched": false,
+  "nativeTestsStarted": false,
+  "acceptanceStatusesChanged": false,
+  "nextAction": "Stop before native launch; do not bypass the denied process read using another API or Terminal UI."
+}

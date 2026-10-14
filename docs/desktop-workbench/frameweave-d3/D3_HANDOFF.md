@@ -2,6 +2,26 @@
 
 D3核心实现与本机主要原生闭环完成：原生选择 → 管理副本 → SQLite资料保存/搜索/收藏/归档恢复 → 真实播放与seek → 受控退出和重启恢复。没有开始D4。验收为 **50 PASS / 3 MANUAL_PENDING / 1 NOT_RUN**，不声称54项全部通过。
 
+## 最新权限诊断：审批通路已实测可用（伦敦时间2026-10-15 00:00）
+
+当前轮的approval_policy已在UTC2026-10-14 22:55:57.296从granular/sandbox_approval=false变为on-request；同一会话的工作区权限profile摘要完全相同。随后同一条 `/bin/ps -axo pid=,ppid=,rss=,comm=` 在默认沙箱内仍退出127，通过require_escalated正常审批执行则退出0并返回进程行。此前阻断是真实历史记录，但不再代表当前审批能力。无需再切同一模式开关或重建任务。
+
+限制已定位到命令沙箱和该轮运行时审批策略。用户/项目/系统配置及com.openai.codex的两项MDM键未发现相应false；获准的独立只读config/read显示审批/沙箱键未显式设置、无对应origins，configRequirements/read返回requirements=null。尚无证据确定哪个UI或主机内部事件触发策略改变，不能称为已找到具体缓存故障。
+
+下一步可对完整采样器命令申请沙箱外执行并实测；这次ps获准不等于采样器或原生启动也已获准。采样器路径、摘要与隔离参数见 [权限来源实证](evidence/permission-source-diagnosis-20261014.json)。本次没有启动FrameWeave、未采集导入RSS、未执行V37或人工项，54项仍为50 PASS / 3 MANUAL_PENDING / 1 NOT_RUN。原生启动和vmmap归属仍需实际验证，不因ps成功提前判通过。
+
+## 前一次续做闸门（2026-10-14 UTC 22:51–22:52，历史）
+
+本地续做任务已在真实工程 `/Users/shaoqitang/Documents/ChatGPT/FrameWeave` 执行，开始时工作区干净，HEAD为 `16357690a2b7789d56f03e7ace923627564ca1dd`，main追踪origin/main，远端地址符合AGENTS。D3 evidence目录的自有临时文件创建、读回及清理成功；写入范围已实际生效。
+
+进程读取仍未获准：`ps -axo pid=,ppid=,rss=,comm=` 退出127，原文为 `zsh:1: operation not permitted: ps`。本任务sandbox_approval=false；虽有request_permissions工具，其可申请范围只有文件系统和网络，没有进程读取授权。本次未重复申请被禁止的提权，也未换API或Terminal界面绕过。按续做指令停在原生启动前，V13采样和V37原生导入/解码均未执行，RSS样本数0，无新增原生截图。不能确认当前是否有应用进程；不将历史正常退出记录当作本次进程核验。
+
+本次只读复核：61项源码摘要与BUILD_MANIFEST全部匹配，最终exe与ZIP摘要仍匹配；隔离库各表与旧SQLite Backup API快照一致，2个资产、4次尝试、0活动尝试、staging空；正式根仍仅shell.json，其解析值与续做前一致。三份已准备的编码样本大小/摘要匹配原记录，仍未原生选择或播放；FFmpeg历史预检不替代WK结果。未改产品代码、未重建、未提交或推送。
+
+本次真实证据：[权限闸门](evidence/followup-permission-gate-20261014T225141Z.json)、[只读保护复核及夹具摘要](evidence/followup-readonly-audit-20261014T225249Z.json)。旧任务的pending-repo-update未直接套用，原记录与快照继续保留。54项状态不变。下述历史检查数量不是本次重新运行结果。
+
+下一前提是执行环境实际允许进程读取；当前任务没有可申请该授权的工具范围。前提满足前不启动最终包、不安排中文IME或系统断网人工验收、不进入D4。满足后沿用旧任务d3-followup中的采样器，先验无既有实例和隔离根，再在BASELINE_READY_USE_NATIVE_PICKER后用真实选择器导入长片；之后逐个验三份编码样本。无需重新开发D3或覆盖既有数据库。
+
 ## 交付位置
 
 - 最终应用：`/Users/shaoqitang/Documents/ChatGPT/FrameWeave/deliverables/D3/FrameWeave.app`
@@ -35,7 +55,7 @@ Rust拥有SQLite和文件。运行时AppData与shell分离，schema1、短事务
 
 保护副本：`/Users/shaoqitang/Documents/Codex/2026-10-14/macos-frameweave-d3-1-agents-md-2/protection`，含原源码/Git状态、D2全产物、更名临时备份稳定副本和原shell。更名原临时备份也仍存在；未再次迁移。隔离库有SQLite Backup API一致快照：本对话目录下native-first-snapshot、native-after-cancel-snapshot、native-before-routing-snapshot。不是产品备份恢复功能，不把活动主库单文件拷贝冒充完整备份。
 
-HEAD保持4338b275185aad08889f0748bb20c3971fceb90b，origin保持https://github.com/SharkyTang/frameweave.git，开始时6份D3输入untracked而无staged/unstaged；输入和AGENTS保留。所有新增/修改均未自动暂存、提交、推送或stash/reset/clean。D2目录保留，不覆盖D2交付；现有Cargo锁定包版本保留，只增加新依赖所需项。
+D3实现会话当时HEAD为4338b275185aad08889f0748bb20c3971fceb90b，origin为https://github.com/SharkyTang/frameweave.git，开始时6份D3输入untracked而无staged/unstaged；这是历史基线，当前续做HEAD见本页最新闸门记录。输入和AGENTS保留。当时所有新增/修改均未自动暂存、提交、推送或stash/reset/clean。D2目录保留，不覆盖D2交付；现有Cargo锁定包版本保留，只增加新依赖所需项。
 
 ## 待验及下一项准确动作
 

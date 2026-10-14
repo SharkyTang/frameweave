@@ -155,3 +155,24 @@ D3-061明确保留真实输入法待人工；D3-048的长片/倍速/暂停已有
 
 
 补充格式核对：现有Prettier检查与本轮变更/新增Rust文件的Rustfmt检查通过。额外全量Rustfmt对未改动的src-tauri/src/main.rs报原有单行格式差异，文件与保护副本字节一致；失败日志保留于evidence/rustfmt-existing-main.log/json，没有将这次全量检查写作通过。
+
+## 2026-10-14 本地续做：权限闸门未通过
+
+- 本次实际cwd为 `/Users/shaoqitang/Documents/ChatGPT/FrameWeave`，适用工程根AGENTS，apps/desktop及D3文档/产物下没有更深AGENTS。初始main追踪origin/main，工作区干净，HEAD=`16357690a2b7789d56f03e7ace923627564ca1dd`，origin符合固定地址。旧4338基线只属于历史实现会话；本次未执行Git暂存、提交或推送。
+- 在D3 evidence目录创建唯一命名自有临时文件，读回相同内容后删除，写入/清理实际成功。`ps -axo pid=,ppid=,rss=,comm=`仍退出127，`zsh:1: operation not permitted: ps`。本任务sandbox_approval=false，request_permissions虽可调用却只提供文件系统和网络范围，没有进程读取授权；不重复请求禁止的升级、不借其他API或Terminal绕过。
+- 依照用户的失败边界，停在原生启动前，未运行采样器--launch、未打开FrameWeave或选择器、未导入编码样本，RSS样本0。没有进程读取证据，不能声称当前应用已退出。未安排真实IME或断网操作，未进入D4。证据为 [followup-permission-gate-20261014T225141Z.json](evidence/followup-permission-gate-20261014T225141Z.json)。
+- 只读保护复核：当前源码61项与BUILD_MANIFEST全部匹配；exe/ZIP摘要匹配原清单，没有构建或签名重验。隔离库schema1/DELETE、quick_check=ok、外键无异常，逐表与旧Backup API快照一致，2资产/4尝试/0活动，staging空；正式根仅shell.json，解析值与续做前一致。未改任何库、媒体或正式资料，也未复制活跃主库文件。详见 [followup-readonly-audit-20261014T225249Z.json](evidence/followup-readonly-audit-20261014T225249Z.json)。
+- 已读取旧d3-followup的工作日志、采样说明/脚本、三份夹具元数据和各次权限失败记录。三小样本大小/SHA本次匹配；FFmpeg预检属于UTC22:11的旧准备，未重跑生成器或解码，不能算最终WK验收。旧pending-repo-update未覆盖canonical文件；本次仅按新实证增量更新D3文档、54项JSON的补充信息、截图说明和媒体矩阵。
+- 54行状态保持50 PASS / 3 MANUAL_PENDING / 1 NOT_RUN。V13/V37没有新增通过，V48/V51不变；历史25组件/27Rust/10浏览器及既有格式结果未在本次重跑。无产品代码变化，保留最终app/ZIP、BUILD_MANIFEST和D2全部产物。
+
+下一准确动作是先具备实际进程读取能力，当前任务没有可申请该授权的工具范围；未满足前不启动原生测试。满足后复用旧d3-followup/sample_import_memory.py，以--launch --responsible-method vmmap-summary采集，BASELINE_READY_USE_NATIVE_PICKER后真实选入长片；如命中既有asset的duplicate，只能报告复制/摘要/查重路径。再逐个原生验三编码夹具，最后提供IME和系统断网人工步骤。不得清库、盲套旧补丁或开始D4。
+
+## 权限来源诊断与本轮实际恢复（伦敦时间2026-10-15 00:00）
+
+用户要求查清来源和有效步骤，不再重复切同一开关。已使用openai-docs核对官方说明，并读取会话turn_context和本机配置来源；未修改权限配置或项目代码。
+
+旧会话UTC22:07:53.955由on-request变为granular/sandbox_approval=false；本续做任务UTC22:50:56.642仍为false。本次UTC22:55:57.296实际已变on-request，同一工作区permission_profile摘要未变。默认ps再次退出127；立即通过本轮允许的require_escalated申请运行完全相同命令，UTC22:56:30.564返回exit0和进程行。未将进程全表复制到工程证据。
+
+用户config没有审批/沙箱/权限显式键，项目/祖先配置及系统requirements/managed_config文件不存在，标准CFPreferences查询的com.openai.codex两键均不存在且未forced。默认沙箱内独立app-server诊断也被拒；经单次正常审批启动临时stdio诊断进程，只执行initialize、config/read、configRequirements/read，正常退出0。对应安全键均未显式设置、origins无对应项，requirements=null；没有thread/start、command/exec或配置写入。不能据此推断触发桌面策略改变的具体UI事件，但已定位实际拒绝层及已生效的审批执行路径。
+
+完整脱敏实证见 [permission-source-diagnosis-20261014.json](evidence/permission-source-diagnosis-20261014.json)。当前进程读取可经审批完成；继续采样时须为完整采样器/隔离启动命令申请审批，不能把ps一次获准当成其他命令已获准。没有原生应用启动、导入RSS或编码测试，仍未验证vmmap归属，54项状态不变；原产品包、数据和Git历史未改。

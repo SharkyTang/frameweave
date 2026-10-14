@@ -1,0 +1,109 @@
+{
+  "recordedAtUtc": "2026-10-14T22:52:49.785605+00:00",
+  "scope": "Read-only filesystem and SQLite audit after process-read gate failed; no native execution",
+  "head": "16357690a2b7789d56f03e7ace923627564ca1dd",
+  "sourceManifest": {
+    "path": "deliverables/D3/BUILD_MANIFEST.json",
+    "sha256": "887e399643da9e00169d84ab4f2bf6a822f722c6268b9ea378dd1ae40e63e834",
+    "entries": 61,
+    "allMatch": true,
+    "mismatchedPaths": []
+  },
+  "artifacts": {
+    "executableSha256": "407b4b2ff9ca89eb93c79bba28bc504f5b1e133f2f329033acdd14e8ff97fc20",
+    "archiveSha256": "58bb996b46a3c779289a39cfc086e350489cdcb567cec55597febe9327f9d21b",
+    "executableMatchesManifest": true,
+    "archiveMatchesManifest": true,
+    "signatureCheckRerun": false,
+    "rebuilt": false
+  },
+  "isolatedDatabase": {
+    "rootMarkerExact": true,
+    "readOnlyTransaction": true,
+    "userVersion": 1,
+    "journalMode": "delete",
+    "quickCheck": [
+      [
+        "ok"
+      ]
+    ],
+    "foreignKeyViolationCount": 0,
+    "tableCounts": {
+      "asset_tags": 3,
+      "assets": 2,
+      "import_attempts": 4,
+      "schema_migrations": 1,
+      "tags": 3
+    },
+    "attemptStates": {
+      "cancelled": 1,
+      "duplicate": 1,
+      "imported": 2
+    },
+    "activeAttemptCount": 0,
+    "matchesBeforeFollowupSnapshotByTable": {
+      "asset_tags": true,
+      "assets": true,
+      "import_attempts": true,
+      "schema_migrations": true,
+      "tags": true
+    },
+    "comparisonSnapshot": "/Users/shaoqitang/Documents/Codex/2026-10-14/macos-frameweave-d3-1-agents-md-2/d3-followup/before-followup.sqlite3",
+    "stagingDirectoriesPresent": [
+      "staging"
+    ],
+    "newSnapshotCreated": false,
+    "newSnapshotReason": "No test started and all tables match prior SQLite Backup API snapshot",
+    "stagingFileCountsByDirectory": {
+      "staging": 0
+    }
+  },
+  "formalRoot": {
+    "onlyShellJson": true,
+    "fileCount": 1,
+    "shellMatchesBeforeFollowupParsedValue": true,
+    "writesAttempted": false
+  },
+  "fixtureMetadataSource": "/Users/shaoqitang/Documents/Codex/2026-10-14/macos-frameweave-d3-1-agents-md-2/d3-followup/media-fixtures.json",
+  "fixtureMetadataSha256": "cf70cc8eec05394ef8314f4f9c0a16879d1edca749a8acda1f169296e2de0090",
+  "fixtures": [
+    {
+      "filename": "D3_H264_Baseline_control.mp4",
+      "bytes": 289053,
+      "sha256": "28e643eda18ae7942578b271d97ee03111e1c4f259ac96b989fe4c65e5f58939",
+      "matchesPreparedMetadata": true,
+      "nativePicker": "NOT_RUN",
+      "nativeDecode": "NOT_RUN",
+      "historicalStrictDecodeExitCode": 0,
+      "historicalDecodePreparedAtUtc": "2026-10-14T22:11:33.921971+00:00",
+      "ffmpegRerunThisAttempt": false
+    },
+    {
+      "filename": "D3_H264_High444_10bit.mp4",
+      "bytes": 357465,
+      "sha256": "a0b3a3bd48d4a816a599f524786931c9e38c45e9ea7954bf59dc446f8ad9e2c3",
+      "matchesPreparedMetadata": true,
+      "nativePicker": "NOT_RUN",
+      "nativeDecode": "NOT_RUN",
+      "historicalStrictDecodeExitCode": 0,
+      "historicalDecodePreparedAtUtc": "2026-10-14T22:11:33.921971+00:00",
+      "ffmpegRerunThisAttempt": false
+    },
+    {
+      "filename": "D3_H264_intact_index_broken_mdat.mp4",
+      "bytes": 289053,
+      "sha256": "2d38570c784cf203901226ca0cf8edbd44b0ed4fbe3204e7d1eaae623596710c",
+      "matchesPreparedMetadata": true,
+      "nativePicker": "NOT_RUN",
+      "nativeDecode": "NOT_RUN",
+      "historicalStrictDecodeExitCode": 183,
+      "historicalDecodePreparedAtUtc": "2026-10-14T22:11:33.921971+00:00",
+      "ffmpegRerunThisAttempt": false
+    }
+  ],
+  "nativeAppLaunched": false,
+  "nativeProcessState": "UNVERIFIED_PROCESS_READ_DENIED",
+  "rssSamplesCollected": 0,
+  "productCodeChanged": false,
+  "enteredD4": false
+}
